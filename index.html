@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aster Digital — Будуємо серйозні програмні продукти</title>
+  <meta name="description" content="Aster Digital — інженерна студія, що проєктує та запускає SaaS-платформи, AI-інструменти, автоматизації та внутрішні системи." />
+  <meta name="theme-color" content="#060606" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- grain / vignette overlays -->
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__brand">
+      <span class="nav__mark" aria-hidden="true"></span>
+      <span>Aster Digital</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="services.html" data-i18n="nav.build">Послуги</a>
+      <a href="work.html" data-i18n="nav.work">Роботи</a>
+      <a href="about.html" data-i18n="nav.about">Про нас</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang-switcher" role="group" aria-label="Мова">
+        <button class="lang-btn is-active" data-lang="uk" aria-pressed="true">UA</button>
+        <button class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <a href="#contact" class="nav__cta" data-i18n="nav.cta">Почати проєкт</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1 — HERO -->
+    <section class="hero" id="hero">
+
+      <!-- Volumetric light — full-section, behind everything -->
+      <div class="hl hl--atmo"  id="hLightAtmo"  aria-hidden="true"></div>
+      <div class="hl hl--vol"   id="hLightVol"   aria-hidden="true"></div>
+      <div class="hl hl--core"  id="hLightCore"  aria-hidden="true"></div>
+
+      <div class="hero__grid">
+
+        <!-- LEFT: brand -->
+        <div class="hero__brand">
+          <h1 class="hero__company" data-rise>Aster<br>Digital</h1>
+          <span class="hero__studio" data-rise data-i18n="hero.studio">Product Engineering Studio</span>
+          <a href="#contact" class="btn btn--primary hero__brand-cta" data-rise data-i18n="hero.cta_primary">Почати проєкт</a>
+        </div>
+
+        <!-- CENTER: logo -->
+        <div class="hero__visual">
+          <div class="hero__logo-wrap" id="heroLogoWrap">
+            <span class="hlr hlr--1" aria-hidden="true"></span>
+            <span class="hlr hlr--2" aria-hidden="true"></span>
+            <img src="public/assets/aster-logo.png"
+                 class="hero__logo"
+                 id="heroLogo"
+                 alt="Aster Digital" />
+          </div>
+        </div>
+
+        <!-- RIGHT: slogan -->
+        <div class="hero__slogan">
+          <ul class="hero__lines">
+            <li data-rise>
+              <span class="hli">01</span>
+              <span class="hlt" data-i18n="hero.s1">Будуємо SaaS-продукти.</span>
+            </li>
+            <li data-rise>
+              <span class="hli">02</span>
+              <span class="hlt" data-i18n="hero.s2">Інтегруємо AI.</span>
+            </li>
+            <li data-rise>
+              <span class="hli">03</span>
+              <span class="hlt" data-i18n="hero.s3">Автоматизуємо процеси.</span>
+            </li>
+            <li data-rise>
+              <span class="hli">04</span>
+              <span class="hlt" data-i18n="hero.s4">Запускаємо продукти.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div><!-- /hero__grid -->
+
+      <div class="hero__scroll" data-rise>
+        <span data-i18n="hero.scroll">Гортати</span>
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <!-- SECTION 2 — WHAT WE BUILD (System Map) -->
+    <section class="build" id="build">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal data-i18n="build.eyebrow">02 — Можливості</p>
+        <h2 class="section-title" data-reveal data-i18n="build.title">
+          Одна студія. Повна продуктова екосистема.
+        </h2>
+      </div>
+
+      <!-- Product Stack — one unified engineering system -->
+      <div class="prod-stack" id="prodStack">
+
+        <!-- System header bar -->
+        <div class="ps__sysbar" aria-hidden="true">
+          <div class="ps__sysbar-left">
+            <span class="ps__sysbar-dot"></span>
+            <span class="ps__sysbar-dot"></span>
+            <span class="ps__sysbar-dot"></span>
+          </div>
+          <span class="ps__sysbar-title">ASTER PRODUCT STACK — v2.4</span>
+          <span class="ps__sysbar-meta">5 MODULES · ALL SYSTEMS OPERATIONAL</span>
+        </div>
+
+        <!-- Background grid (decorative) -->
+        <div class="ps__bg-grid" aria-hidden="true"></div>
+
+        <!-- LAYER 01 — Websites -->
+        <div class="ps__layer" data-layer="0">
+          <div class="ps__layer-inner">
+            <div class="ps__index">
+              <span class="ps__num">01</span>
+              <span class="ps__tag" data-i18n="build.web_tag">Web</span>
+            </div>
+            <div class="ps__main">
+              <h3 class="ps__title" data-i18n="build.web_name">Сайти</h3>
+            </div>
+            <div class="ps__side">
+              <svg class="ps__gfx" viewBox="0 0 64 40" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="62" height="38" rx="3" stroke="rgba(255,255,255,0.18)" stroke-width="0.8"/>
+                <line x1="1" y1="9" x2="63" y2="9" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+                <rect x="5"  y="13" width="16" height="22" rx="1.5" stroke="rgba(255,255,255,0.22)" stroke-width="0.7"/>
+                <rect x="25" y="13" width="16" height="22" rx="1.5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+                <rect x="45" y="13" width="14" height="22" rx="1.5" stroke="rgba(255,255,255,0.12)" stroke-width="0.7"/>
+                <circle cx="4" cy="5" r="1.5" fill="rgba(255,255,255,0.5)"/>
+                <circle cx="9" cy="5" r="1.5" fill="rgba(255,255,255,0.25)"/>
+                <circle cx="14" cy="5" r="1.5" fill="rgba(255,255,255,0.15)"/>
+              </svg>
+              <span class="ps__tech" data-i18n="build.web_tech">Next.js · CMS · Figma</span>
+            </div>
+            <div class="ps__status">
+              <span class="ps__status-dot"></span>
+              <span class="ps__status-label" data-i18n="build.status_active">ACTIVE</span>
+            </div>
+          </div>
+          <!-- Expand: reveals on hover -->
+          <div class="ps__expand" data-expand>
+            <div class="ps__exp-line" aria-hidden="true"></div>
+            <div class="ps__exp-inner">
+              <ul class="ps__exp-mods" data-items-key="web" aria-label="Модулі"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAYER 02 — SaaS -->
+        <div class="ps__layer" data-layer="1">
+          <div class="ps__layer-inner">
+            <div class="ps__index">
+              <span class="ps__num">02</span>
+              <span class="ps__tag" data-i18n="build.saas_tag">Platform</span>
+            </div>
+            <div class="ps__main">
+              <h3 class="ps__title" data-i18n="build.saas_name">SaaS-платформи</h3>
+            </div>
+            <div class="ps__side">
+              <svg class="ps__gfx" viewBox="0 0 64 40" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="62" height="38" rx="3" stroke="rgba(255,255,255,0.18)" stroke-width="0.8"/>
+                <line x1="1" y1="9" x2="63" y2="9" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"/>
+                <rect x="8"  y="28" width="8" height="6"  rx="1" fill="rgba(255,255,255,0.35)"/>
+                <rect x="20" y="20" width="8" height="14" rx="1" fill="rgba(255,255,255,0.28)"/>
+                <rect x="32" y="15" width="8" height="19" rx="1" fill="rgba(255,255,255,0.45)"/>
+                <rect x="44" y="22" width="8" height="12" rx="1" fill="rgba(255,255,255,0.25)"/>
+                <polyline points="12,29 24,22 36,17 48,23" stroke="rgba(255,255,255,0.6)" stroke-width="1" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="4" cy="5" r="1.5" fill="rgba(255,255,255,0.5)"/>
+              </svg>
+              <span class="ps__tech" data-i18n="build.saas_tech">PostgreSQL · Stripe · Auth.js</span>
+            </div>
+            <div class="ps__status">
+              <span class="ps__status-dot"></span>
+              <span class="ps__status-label" data-i18n="build.status_active">ACTIVE</span>
+            </div>
+          </div>
+          <div class="ps__expand" data-expand>
+            <div class="ps__exp-line" aria-hidden="true"></div>
+            <div class="ps__exp-inner">
+              <ul class="ps__exp-mods" data-items-key="saas" aria-label="Модулі"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAYER 03 — AI -->
+        <div class="ps__layer" data-layer="2">
+          <div class="ps__layer-inner">
+            <div class="ps__index">
+              <span class="ps__num">03</span>
+              <span class="ps__tag" data-i18n="build.ai_tag">Intelligence</span>
+            </div>
+            <div class="ps__main">
+              <h3 class="ps__title" data-i18n="build.ai_name">AI-інструменти</h3>
+            </div>
+            <div class="ps__side">
+              <svg class="ps__gfx" viewBox="0 0 64 40" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="62" height="38" rx="3" stroke="rgba(255,255,255,0.18)" stroke-width="0.8"/>
+                <circle cx="10" cy="20" r="4"   stroke="rgba(255,255,255,0.3)"  stroke-width="0.8"/>
+                <circle cx="32" cy="11" r="3.5" stroke="rgba(255,255,255,0.45)" stroke-width="0.8"/>
+                <circle cx="32" cy="20" r="3.5" stroke="rgba(255,255,255,0.6)"  stroke-width="0.8" fill="rgba(255,255,255,0.08)"/>
+                <circle cx="32" cy="29" r="3.5" stroke="rgba(255,255,255,0.35)" stroke-width="0.8"/>
+                <circle cx="54" cy="20" r="4"   stroke="rgba(255,255,255,0.4)"  stroke-width="0.8" fill="rgba(255,255,255,0.06)"/>
+                <line x1="14" y1="18" x2="28" y2="13" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+                <line x1="14" y1="20" x2="28" y2="20" stroke="rgba(255,255,255,0.28)" stroke-width="0.7"/>
+                <line x1="14" y1="22" x2="28" y2="27" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+                <line x1="36" y1="13" x2="50" y2="19" stroke="rgba(255,255,255,0.22)" stroke-width="0.7"/>
+                <line x1="36" y1="20" x2="50" y2="20" stroke="rgba(255,255,255,0.32)" stroke-width="0.7"/>
+                <line x1="36" y1="27" x2="50" y2="21" stroke="rgba(255,255,255,0.18)" stroke-width="0.7"/>
+              </svg>
+              <span class="ps__tech" data-i18n="build.ai_tech">OpenAI · Anthropic · Vercel AI</span>
+            </div>
+            <div class="ps__status">
+              <span class="ps__status-dot"></span>
+              <span class="ps__status-label" data-i18n="build.status_active">ACTIVE</span>
+            </div>
+          </div>
+          <div class="ps__expand" data-expand>
+            <div class="ps__exp-line" aria-hidden="true"></div>
+            <div class="ps__exp-inner">
+              <ul class="ps__exp-mods" data-items-key="ai" aria-label="Модулі"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAYER 04 — Automation -->
+        <div class="ps__layer" data-layer="3">
+          <div class="ps__layer-inner">
+            <div class="ps__index">
+              <span class="ps__num">04</span>
+              <span class="ps__tag" data-i18n="build.auto_tag">Ops</span>
+            </div>
+            <div class="ps__main">
+              <h3 class="ps__title" data-i18n="build.auto_name">Автоматизація</h3>
+            </div>
+            <div class="ps__side">
+              <svg class="ps__gfx" viewBox="0 0 64 40" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="62" height="38" rx="3" stroke="rgba(255,255,255,0.18)" stroke-width="0.8"/>
+                <rect x="4"  y="16" width="12" height="8" rx="2" stroke="rgba(255,255,255,0.35)" stroke-width="0.8"/>
+                <rect x="26" y="16" width="12" height="8" rx="2" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.45)" stroke-width="0.8"/>
+                <rect x="48" y="16" width="12" height="8" rx="2" stroke="rgba(255,255,255,0.35)" stroke-width="0.8"/>
+                <line x1="16" y1="20" x2="24" y2="20" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+                <polyline points="21,17 24,20 21,23" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
+                <line x1="38" y1="20" x2="46" y2="20" stroke="rgba(255,255,255,0.3)" stroke-width="0.8"/>
+                <polyline points="43,17 46,20 43,23" stroke="rgba(255,255,255,0.3)" stroke-width="0.8" fill="none"/>
+                <circle cx="10" cy="9" r="2" fill="rgba(255,255,255,0.3)"/>
+                <circle cx="32" cy="9" r="2" fill="rgba(255,255,255,0.5)"/>
+                <circle cx="54" cy="9" r="2" fill="rgba(255,255,255,0.3)"/>
+                <line x1="10" y1="11" x2="10" y2="16" stroke="rgba(255,255,255,0.18)" stroke-dasharray="2 2" stroke-width="0.7"/>
+                <line x1="32" y1="11" x2="32" y2="16" stroke="rgba(255,255,255,0.28)" stroke-dasharray="2 2" stroke-width="0.7"/>
+                <line x1="54" y1="11" x2="54" y2="16" stroke="rgba(255,255,255,0.18)" stroke-dasharray="2 2" stroke-width="0.7"/>
+              </svg>
+              <span class="ps__tech" data-i18n="build.auto_tech">n8n · Zapier · Custom APIs</span>
+            </div>
+            <div class="ps__status">
+              <span class="ps__status-dot"></span>
+              <span class="ps__status-label" data-i18n="build.status_active">ACTIVE</span>
+            </div>
+          </div>
+          <div class="ps__expand" data-expand>
+            <div class="ps__exp-line" aria-hidden="true"></div>
+            <div class="ps__exp-inner">
+              <ul class="ps__exp-mods" data-items-key="auto" aria-label="Модулі"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAYER 05 — Internal Systems -->
+        <div class="ps__layer" data-layer="4">
+          <div class="ps__layer-inner">
+            <div class="ps__index">
+              <span class="ps__num">05</span>
+              <span class="ps__tag" data-i18n="build.int_tag">Internal</span>
+            </div>
+            <div class="ps__main">
+              <h3 class="ps__title" data-i18n="build.int_name">Внутрішні системи</h3>
+            </div>
+            <div class="ps__side">
+              <svg class="ps__gfx" viewBox="0 0 64 40" fill="none" aria-hidden="true">
+                <rect x="1" y="1" width="62" height="38" rx="3" stroke="rgba(255,255,255,0.18)" stroke-width="0.8"/>
+                <rect x="1" y="1" width="62" height="10" rx="3" fill="rgba(255,255,255,0.05)"/>
+                <line x1="1" y1="11" x2="63" y2="11" stroke="rgba(255,255,255,0.18)" stroke-width="0.8"/>
+                <line x1="22" y1="1"  x2="22" y2="39" stroke="rgba(255,255,255,0.08)" stroke-width="0.7"/>
+                <line x1="44" y1="1"  x2="44" y2="39" stroke="rgba(255,255,255,0.08)" stroke-width="0.7"/>
+                <line x1="1" y1="19" x2="63" y2="19" stroke="rgba(255,255,255,0.06)" stroke-width="0.7"/>
+                <line x1="1" y1="27" x2="63" y2="27" stroke="rgba(255,255,255,0.06)" stroke-width="0.7"/>
+                <rect x="4"  y="13" width="14" height="4" rx="1" fill="rgba(255,255,255,0.22)"/>
+                <rect x="26" y="13" width="10" height="4" rx="1" fill="rgba(255,255,255,0.12)"/>
+                <rect x="4"  y="21" width="12" height="4" rx="1" fill="rgba(255,255,255,0.12)"/>
+                <rect x="26" y="21" width="14" height="4" rx="1" fill="rgba(255,255,255,0.18)"/>
+                <rect x="4"  y="29" width="16" height="4" rx="1" fill="rgba(255,255,255,0.08)"/>
+              </svg>
+              <span class="ps__tech" data-i18n="build.int_tech">Role-based · Audit log · Tailored</span>
+            </div>
+            <div class="ps__status">
+              <span class="ps__status-dot"></span>
+              <span class="ps__status-label" data-i18n="build.status_active">ACTIVE</span>
+            </div>
+          </div>
+          <div class="ps__expand" data-expand>
+            <div class="ps__exp-line" aria-hidden="true"></div>
+            <div class="ps__exp-inner">
+              <ul class="ps__exp-mods" data-items-key="int" aria-label="Модулі"></ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom system footer bar -->
+        <div class="ps__footer" aria-hidden="true">
+          <span class="ps__footer-label">BUILD · SHIP · SCALE</span>
+          <span class="ps__footer-ref">aster.digital/stack</span>
+        </div>
+
+      </div><!-- /prod-stack -->
+    </section>
+
+    <!-- SECTION 3 — PRODUCT CREATION PROCESS -->
+    <section class="evolve" id="evolve">
+      <div class="evolve__pin" id="evolvePin">
+        <div class="evolve__head">
+          <p class="eyebrow" data-i18n="evolve.eyebrow">03 — Процес</p>
+          <h2 class="section-title" data-i18n="evolve.title">Як народжуються продукти.</h2>
+          <p class="evolve__caption" id="evolveCaption">
+            Ідея уточнюється — цілі, обмеження, перша форма продукту.
+          </p>
+        </div>
+
+        <!-- Stage visuals — each represents a real product creation step -->
+        <div class="evolve__object" aria-hidden="true" id="evolveObject">
+
+          <!-- Stage 0: IDEA — glowing concept node -->
+          <div class="sv sv--idea is-visible" data-sv="0">
+            <div class="sv__idea-glow"></div>
+            <div class="sv__idea-core"></div>
+            <div class="sv__idea-rays">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span>
+            </div>
+            <div class="sv__label">
+              <span class="sv__num">01</span>
+              <span class="sv__stage-name" data-i18n-sv="0">Ідея</span>
+            </div>
+          </div>
+
+          <!-- Stage 1: ARCHITECTURE — blueprint wireframe -->
+          <div class="sv sv--arch" data-sv="1">
+            <svg class="sv__arch-svg" viewBox="0 0 300 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Blueprint grid -->
+              <defs>
+                <pattern id="bpgrid" width="30" height="30" patternUnits="userSpaceOnUse">
+                  <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="300" height="260" fill="url(#bpgrid)" />
+              <!-- Wireframe components -->
+              <rect class="arch-box" x="20"  y="20"  width="80"  height="50"  rx="4" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="4 3"/>
+              <rect class="arch-box" x="110" y="20"  width="80"  height="50"  rx="4" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="4 3"/>
+              <rect class="arch-box" x="200" y="20"  width="80"  height="50"  rx="4" stroke="rgba(255,255,255,0.25)" stroke-width="1" stroke-dasharray="4 3"/>
+              <rect class="arch-box" x="65"  y="105" width="170" height="60"  rx="4" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+              <rect class="arch-box" x="20"  y="195" width="120" height="50"  rx="4" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+              <rect class="arch-box" x="160" y="195" width="120" height="50"  rx="4" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+              <!-- Connector lines -->
+              <line class="arch-conn" x1="60"  y1="70"  x2="150" y2="105" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+              <line class="arch-conn" x1="150" y1="70"  x2="150" y2="105" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+              <line class="arch-conn" x1="240" y1="70"  x2="150" y2="105" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+              <line class="arch-conn" x1="80"  y1="165" x2="80"  y2="195" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+              <line class="arch-conn" x1="220" y1="165" x2="220" y2="195" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+              <!-- Active nodes -->
+              <circle cx="150" cy="135" r="5" fill="white" opacity="0.9"/>
+              <circle cx="60"  cy="45"  r="3" fill="white" opacity="0.6"/>
+              <circle cx="150" cy="45"  r="3" fill="white" opacity="0.8"/>
+            </svg>
+            <div class="sv__label">
+              <span class="sv__num">02</span>
+              <span class="sv__stage-name" data-i18n-sv="1">Архітектура</span>
+            </div>
+          </div>
+
+          <!-- Stage 2: BUILD — terminal with code -->
+          <div class="sv sv--build" data-sv="2">
+            <div class="sv__terminal">
+              <div class="sv__term-bar" aria-hidden="true">
+                <span></span><span></span><span></span>
+                <span class="sv__term-title">aster — build</span>
+              </div>
+              <div class="sv__term-body">
+                <div class="sv__code-line" style="--w:55%"><span class="sv__tok sv__tok--key">import</span> <span class="sv__tok sv__tok--str">'./components'</span></div>
+                <div class="sv__code-line" style="--w:80%"><span class="sv__tok sv__tok--fn">const</span> <span class="sv__tok sv__tok--var">app</span> <span class="sv__tok sv__tok--op">=</span> <span class="sv__tok sv__tok--fn">createApp</span>(config)</div>
+                <div class="sv__code-line sv__code-line--indent" style="--w:60%"><span class="sv__tok sv__tok--fn">.use</span>(database)</div>
+                <div class="sv__code-line sv__code-line--indent" style="--w:50%"><span class="sv__tok sv__tok--fn">.use</span>(auth)</div>
+                <div class="sv__code-line sv__code-line--indent" style="--w:65%"><span class="sv__tok sv__tok--fn">.use</span>(billing)</div>
+                <div class="sv__code-line" style="--w:45%"><span class="sv__tok sv__tok--op">await</span> app<span class="sv__tok sv__tok--fn">.build</span>()</div>
+                <div class="sv__code-line sv__code-blank"></div>
+                <div class="sv__code-line sv__code-out" style="--w:70%"><span class="sv__tok sv__tok--ok">✓</span> compiled 247 modules</div>
+                <div class="sv__code-line sv__code-out" style="--w:55%"><span class="sv__tok sv__tok--ok">✓</span> bundle ready</div>
+                <div class="sv__code-cursor"></div>
+              </div>
+            </div>
+            <div class="sv__label">
+              <span class="sv__num">03</span>
+              <span class="sv__stage-name" data-i18n-sv="2">Розробка</span>
+            </div>
+          </div>
+
+          <!-- Stage 3: LAUNCH — deployment activation -->
+          <div class="sv sv--launch" data-sv="3">
+            <div class="sv__launch-ring sv__launch-ring--1"></div>
+            <div class="sv__launch-ring sv__launch-ring--2"></div>
+            <div class="sv__launch-ring sv__launch-ring--3"></div>
+            <div class="sv__launch-orb">
+              <span class="sv__launch-pulse"></span>
+              <svg viewBox="0 0 40 40" fill="none" class="sv__launch-icon">
+                <circle cx="20" cy="20" r="18" stroke="white" stroke-width="1.5" stroke-dasharray="3 3" opacity="0.4"/>
+                <path d="M20 8 L20 32 M14 14 L20 8 L26 14" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="sv__launch-sparks" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+              <span></span><span></span>
+            </div>
+            <div class="sv__label">
+              <span class="sv__num">04</span>
+              <span class="sv__stage-name" data-i18n-sv="3">Запуск</span>
+            </div>
+          </div>
+
+          <!-- Stage 4: RESULT — finished product UI -->
+          <div class="sv sv--result" data-sv="4">
+            <div class="sv__browser">
+              <div class="sv__browser-bar">
+                <div class="sv__browser-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+                <div class="sv__browser-addr">app.yourproduct.com</div>
+              </div>
+              <div class="sv__browser-body">
+                <!-- Simulated UI -->
+                <div class="sv__ui-nav"></div>
+                <div class="sv__ui-hero">
+                  <div class="sv__ui-h1"></div>
+                  <div class="sv__ui-h2"></div>
+                  <div class="sv__ui-btn"></div>
+                </div>
+                <div class="sv__ui-cards">
+                  <div class="sv__ui-card">
+                    <div class="sv__ui-card-img"></div>
+                    <div class="sv__ui-card-line"></div>
+                    <div class="sv__ui-card-line sv__ui-card-line--short"></div>
+                  </div>
+                  <div class="sv__ui-card">
+                    <div class="sv__ui-card-img"></div>
+                    <div class="sv__ui-card-line"></div>
+                    <div class="sv__ui-card-line sv__ui-card-line--short"></div>
+                  </div>
+                  <div class="sv__ui-card">
+                    <div class="sv__ui-card-img"></div>
+                    <div class="sv__ui-card-line"></div>
+                    <div class="sv__ui-card-line sv__ui-card-line--short"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sv__label">
+              <span class="sv__num">05</span>
+              <span class="sv__stage-name" data-i18n-sv="4">Результат</span>
+            </div>
+          </div>
+
+        </div><!-- /evolve__object -->
+
+        <ol class="evolve__stages" id="evolveStages">
+          <li data-stage="0" class="is-active"><span data-i18n="evolve.stages.0">Ідея</span></li>
+          <li data-stage="1"><span data-i18n="evolve.stages.1">Архітектура</span></li>
+          <li data-stage="2"><span data-i18n="evolve.stages.2">Розробка</span></li>
+          <li data-stage="3"><span data-i18n="evolve.stages.3">Запуск</span></li>
+          <li data-stage="4"><span data-i18n="evolve.stages.4">Результат</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 4 — PROJECTS (Featured, Vercel-style) -->
+    <section class="work" id="work">
+      <div class="section-head">
+        <p class="eyebrow" data-reveal data-i18n="work.eyebrow">04 — Вибрані роботи</p>
+        <h2 class="section-title" data-reveal data-i18n="work.title">Продукти, а не скриншоти.</h2>
+      </div>
+
+      <div class="featured-projects" id="featuredProjects">
+        <!-- Project 1 -->
+        <article class="featured" data-featured="0">
+          <div class="featured__media">
+            <img src="public/assets/project-saas.png" alt="Northwind — SaaS-платформа" loading="lazy" />
+            <div class="featured__media-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="featured__body">
+            <div class="featured__meta">
+              <span class="featured__tag featured-tag-0" data-i18n="work.projects.0.tag">SaaS-платформа</span>
+              <span class="featured__year">2024</span>
+            </div>
+            <h3 class="featured__title featured-title-0" data-i18n="work.projects.0.title">Northwind</h3>
+            <p class="featured__desc featured-desc-0" data-i18n="work.projects.0.desc">
+              Аналітична платформа для обробки мільярдів подій. Модель даних, білінг та дашборди реального часу.
+            </p>
+            <ul class="featured__pills" aria-label="Технології">
+              <li>Next.js</li><li>PostgreSQL</li><li>Realtime</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="featured featured--reverse" data-featured="1">
+          <div class="featured__media">
+            <img src="public/assets/project-ai.png" alt="Cipher — AI-інструмент" loading="lazy" />
+            <div class="featured__media-overlay" aria-hidden="true"></div>
+          </div>
+          <div class="featured__body">
+            <div class="featured__meta">
+              <span class="featured__tag featured-tag-1" data-i18n="work.projects.1.tag">AI-інструмент</span>
+              <span class="featured__year">2024</span>
+            </div>
+            <h3 class="featured__title featured-title-1" data-i18n="work.projects.1.title">Cipher</h3>
+            <p class="featured__desc featured-desc-1" data-i18n="work.projects.1.desc">
+              AI-копілот для юридичного документообігу. Retrieval-системи, агенти та контрольований шар моделі.
+            </p>
+            <ul class="featured__pills" aria-label="Технології">
+              <li>AI SDK</li><li>RAG</li><li>Evals</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="work__footer" data-reveal>
+        <a href="work.html" class="btn btn--ghost" data-i18n="work.view_all">Переглянути всі проєкти →</a>
+      </div>
+    </section>
+
+    <!-- SECTION 5 — CONTACT -->
+    <section class="contact" id="contact">
+      <div class="contact__inner">
+        <div class="contact__intro">
+          <p class="eyebrow" data-reveal data-i18n="contact.eyebrow">05 — Контакт</p>
+          <h2 class="contact__title" data-reveal data-i18n="contact.title">
+            Є продукт, який варто побудувати?
+          </h2>
+          <p class="contact__desc" data-reveal data-i18n="contact.desc">
+            Розкажіть нам про свій проєкт. Відповідаємо на кожен серйозний запит протягом двох робочих днів.
+          </p>
+        </div>
+
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name" data-i18n="contact.label_name">Ім'я</label>
+            <input type="text" id="name" name="name"
+              data-i18n-attr="placeholder:contact.ph_name"
+              placeholder="Ваше ім'я" required />
+          </div>
+          <div class="field">
+            <label for="email" data-i18n="contact.label_email">Електронна пошта</label>
+            <input type="email" id="email" name="email"
+              data-i18n-attr="placeholder:contact.ph_email"
+              placeholder="ви@компанія.com" required />
+          </div>
+          <div class="field">
+            <label for="message" data-i18n="contact.label_msg">Повідомлення</label>
+            <textarea id="message" name="message" rows="4"
+              data-i18n-attr="placeholder:contact.ph_msg"
+              placeholder="Що ви будуєте?" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--block" data-i18n="contact.btn_send">Надіслати повідомлення</button>
+          <p class="contact__status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__brand">
+      <span class="nav__mark" aria-hidden="true"></span>
+      <span>Aster Digital</span>
+    </div>
+    <p>&copy; <span id="year"></span> <span data-i18n="footer.copy">Aster Digital. Інженерно. Навмисно. Точно.</span></p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

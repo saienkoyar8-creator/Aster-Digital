@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Про нас — Aster Digital</title>
+  <meta name="description" content="Aster Digital — інженерна студія з 2019 року. Будуємо серйозні програмні продукти." />
+  <meta name="theme-color" content="#060606" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ── page-hero ── */
+    .ab-hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      overflow: hidden; padding-top: 5rem;
+    }
+    .ab-glow {
+      position: absolute; top: 40%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 780px; height: 580px; border-radius: 50%;
+      background: radial-gradient(ellipse 60% 64% at 50% 48%,
+        rgba(255,255,255,0.072) 0%, rgba(255,255,255,0.024) 44%, transparent 70%);
+      filter: blur(48px);
+      animation: breathe 8s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+    }
+    .ab-glow-core {
+      position: absolute; top: 42%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px; height: 320px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.11) 0%, transparent 60%);
+      filter: blur(12px);
+      animation: breathe 5s ease-in-out infinite reverse;
+      pointer-events: none; z-index: 0;
+    }
+    @keyframes breathe { 0%,100%{opacity:1} 50%{opacity:.68} }
+
+    .ab-hero__inner {
+      position: relative; z-index: 2;
+      max-width: var(--maxw); margin: 0 auto;
+      padding: 2rem clamp(1.25rem, 5vw, 4rem);
+      display: grid; grid-template-columns: 1fr auto;
+      align-items: end; gap: 3rem;
+    }
+    .ab-hero__left { max-width: 720px; }
+    .ab-eyebrow { margin-bottom: 2rem; display: block; }
+
+    .ab-hero__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3.2rem, 8vw, 7rem);
+      font-weight: 700; line-height: 0.92; letter-spacing: -0.04em;
+      color: var(--white); margin-bottom: 2rem;
+    }
+    .ab-title-line {
+      display: block; overflow: hidden;
+    }
+    .ab-title-line span {
+      display: block;
+      transform: translateY(110%);
+    }
+    .ab-title-line--dim span { color: var(--muted); }
+
+    .ab-hero__sub {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      color: var(--muted); max-width: 46ch; line-height: 1.65;
+      opacity: 0; transform: translateY(20px);
+    }
+
+    .ab-hero__logo {
+      width: clamp(160px, 18vw, 240px);
+      opacity: 0; transform: scale(0.8);
+      filter: drop-shadow(0 0 40px rgba(255,255,255,0.18));
+    }
+    .ab-hero__logo img { width: 100%; }
+
+    .ab-hero__scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+      color: var(--muted-2); font-size: 0.72rem; letter-spacing: 0.2em;
+      text-transform: uppercase; z-index: 2;
+      opacity: 0;
+    }
+    .ab-hero__scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
+    }
+    @keyframes scrollLine { 0%,100%{transform:scaleY(1);opacity:.5} 50%{transform:scaleY(.6);opacity:1} }
+
+    /* ── stats ── */
+    .ab-stats {
+      position: relative; z-index: 2;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 5vw, 4rem);
+    }
+    .ab-stats__inner {
+      max-width: var(--maxw); margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--line);
+    }
+    .ab-stat {
+      background: var(--bg);
+      padding: clamp(2rem, 4vw, 3.5rem) clamp(1.5rem, 3vw, 2.5rem);
+      display: flex; flex-direction: column; gap: 0.6rem;
+    }
+    .ab-stat__num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 700; letter-spacing: -0.04em;
+      color: var(--white); line-height: 1;
+    }
+    .ab-stat__label {
+      font-size: 0.8rem; color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── manifesto ── */
+    .ab-manifesto {
+      position: relative; z-index: 2;
+      padding: clamp(6rem, 12vw, 11rem) clamp(1.25rem, 5vw, 4rem);
+    }
+    .ab-manifesto__inner {
+      max-width: var(--maxw); margin: 0 auto;
+    }
+    .ab-manifesto__label {
+      font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
+      color: var(--muted-2); margin-bottom: 3rem; display: block;
+    }
+    .ab-manifesto__text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.5rem, 3.2vw, 2.8rem);
+      font-weight: 500; line-height: 1.3; letter-spacing: -0.02em;
+      color: rgba(255,255,255,0.18);
+      max-width: 22ch;
+    }
+    .ab-manifesto__text .word {
+      display: inline-block;
+      transition: color 0.4s;
+    }
+    .ab-manifesto__text .word.lit { color: var(--white); }
+
+    /* ── principles ── */
+    .ab-principles {
+      position: relative; z-index: 2;
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+    }
+    .ab-principles__grid {
+      max-width: var(--maxw); margin: 0 auto;
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1px; background: var(--line);
+    }
+    .ab-principle {
+      background: var(--bg);
+      padding: clamp(2.5rem, 4vw, 3.5rem);
+      display: flex; flex-direction: column; gap: 1.2rem;
+      clip-path: inset(0 0 100% 0);
+      border-left: 1px solid transparent;
+      transition: border-color 0.4s;
+    }
+    .ab-principle:hover { border-color: rgba(255,255,255,0.15); }
+    .ab-principle__num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.2em;
+      color: var(--muted-2);
+    }
+    .ab-principle h3 {
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      font-weight: 600; letter-spacing: -0.02em;
+      color: var(--white); line-height: 1.2;
+    }
+    .ab-principle p {
+      font-size: 0.95rem; color: var(--muted); line-height: 1.7; max-width: 38ch;
+    }
+
+    /* ── process ── */
+    .ab-process {
+      position: relative; z-index: 2;
+      padding: clamp(4rem, 8vw, 7rem) clamp(1.25rem, 5vw, 4rem);
+      border-top: 1px solid var(--line);
+    }
+    .ab-process__steps {
+      max-width: var(--maxw); margin: 0 auto;
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 1px; background: var(--line);
+    }
+    .ab-step {
+      background: var(--bg);
+      padding: 2.5rem 2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      position: relative;
+    }
+    .ab-step::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: transparent;
+      transition: background 0.4s;
+    }
+    .ab-step:hover::before { background: rgba(255,255,255,0.3); }
+    .ab-step__num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem; letter-spacing: 0.22em;
+      color: var(--muted-2);
+    }
+    .ab-step__title {
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--white); letter-spacing: -0.01em;
+    }
+    .ab-step p {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.65;
+    }
+
+    /* ── cta strip ── */
+    .cta-strip {
+      position: relative; z-index: 2;
+      padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 5vw, 4rem);
+      border-top: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .cta-strip__glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.05) 0%, transparent 70%);
+      filter: blur(40px); pointer-events: none;
+    }
+    .cta-strip__inner {
+      position: relative; z-index: 1;
+      max-width: var(--maxw); margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 2rem;
+    }
+    .cta-strip__title {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 600; letter-spacing: -0.03em; line-height: 1.05;
+    }
+
+    /* ── footer ── */
+    .footer__links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer__links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+    .footer__links a:hover { color: var(--text); }
+
+    /* ── responsive ── */
+    @media (max-width: 900px) {
+      .ab-hero__inner { grid-template-columns: 1fr; }
+      .ab-hero__logo { display: none; }
+      .ab-stats__inner { grid-template-columns: repeat(2, 1fr); }
+      .ab-principles__grid { grid-template-columns: 1fr; }
+      .ab-process__steps { grid-template-columns: repeat(2, 1fr); }
+      .ab-manifesto__text { font-size: clamp(1.3rem, 4vw, 2rem); }
+    }
+    @media (max-width: 560px) {
+      .ab-stats__inner { grid-template-columns: 1fr 1fr; }
+      .ab-process__steps { grid-template-columns: 1fr; }
+      .ab-hero__title { font-size: clamp(2.4rem, 12vw, 4rem); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .ab-title-line span { transform: none !important; }
+      .ab-hero__sub, .ab-hero__logo, .ab-hero__scroll { opacity: 1 !important; transform: none !important; }
+      .ab-principle { clip-path: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav is-scrolled" id="nav">
+    <a href="index.html" class="nav__brand">
+      <span class="nav__mark" aria-hidden="true"></span>
+      <span>Aster Digital</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="services.html">Послуги</a>
+      <a href="work.html">Роботи</a>
+      <a href="about.html" aria-current="page">Про нас</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang-switcher" role="group" aria-label="Мова">
+        <button class="lang-btn is-active" data-lang="uk" aria-pressed="true">UA</button>
+        <button class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <a href="index.html#contact" class="nav__cta">Почати проєкт</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="ab-hero" aria-label="Про студію">
+      <div class="ab-glow"      aria-hidden="true"></div>
+      <div class="ab-glow-core" aria-hidden="true"></div>
+
+      <div class="ab-hero__inner">
+        <div class="ab-hero__left">
+          <span class="eyebrow ab-eyebrow" aria-label="Інженерна студія, заснована 2019 року">
+            Інженерна студія · З 2019
+          </span>
+
+          <h1 class="ab-hero__title">
+            <span class="ab-title-line"><span>Ми будуємо</span></span>
+            <span class="ab-title-line"><span>серйозні</span></span>
+            <span class="ab-title-line ab-title-line--dim"><span>цифрові продукти.</span></span>
+          </h1>
+
+          <p class="ab-hero__sub">
+            Aster Digital — не агентство. Ми інженерна студія, яка бере
+            відповідальність за продукт від ідеї до результату.
+          </p>
+        </div>
+
+        <div class="ab-hero__logo" aria-hidden="true">
+          <img src="public/assets/aster-logo.png" alt="" />
+        </div>
+      </div>
+
+      <div class="ab-hero__scroll" aria-hidden="true">
+        <span>Гортати</span>
+        <span class="ab-hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="ab-stats" aria-label="Ключові цифри">
+      <div class="ab-stats__inner">
+        <div class="ab-stat">
+          <span class="ab-stat__num" data-counter="2019" data-suffix="">2019</span>
+          <span class="ab-stat__label">Рік заснування</span>
+        </div>
+        <div class="ab-stat">
+          <span class="ab-stat__num" data-counter="40" data-suffix="+">40+</span>
+          <span class="ab-stat__label">Продуктів запущено</span>
+        </div>
+        <div class="ab-stat">
+          <span class="ab-stat__num" data-counter="6" data-suffix="">6</span>
+          <span class="ab-stat__label">Напрямків роботи</span>
+        </div>
+        <div class="ab-stat">
+          <span class="ab-stat__num">100%</span>
+          <span class="ab-stat__label">Власна команда</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFESTO -->
+    <section class="ab-manifesto" aria-label="Маніфест">
+      <div class="ab-manifesto__inner">
+        <span class="ab-manifesto__label" data-reveal>Маніфест</span>
+        <p class="ab-manifesto__text" id="manifestoText" aria-label="Ми не вважаємо себе агентством. Ми інженерна студія, яка будує продукти. Різниця в тому що агентства виконують завдання, а ми беремо відповідальність за результат. Ми працюємо з тими, хто розуміє: різниця між хорошим і великим програмним забезпеченням не у списку функцій, а у якості кожного рішення прийнятого на шляху.">
+          Ми не вважаємо себе агентством. Ми — інженерна студія,
+          яка будує продукти. Різниця в тому, що агентства виконують
+          завдання, а ми беремо відповідальність за результат.
+          Ми працюємо з тими, хто розуміє: різниця між хорошим
+          і великим програмним забезпеченням — не у списку функцій,
+          а у якості кожного рішення, прийнятого на шляху.
+        </p>
+      </div>
+    </section>
+
+    <!-- PRINCIPLES -->
+    <section class="ab-principles" aria-label="Наші принципи">
+      <div class="section-head" style="max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.25rem,5vw,4rem);margin-bottom:clamp(3rem,6vw,5rem)">
+        <p class="eyebrow" data-reveal>Наші принципи</p>
+        <h2 class="section-title" data-reveal>Те, у що<br>ми віримо.</h2>
+      </div>
+
+      <div class="ab-principles__grid" style="max-width:var(--maxw);margin:0 auto">
+        <article class="ab-principle">
+          <span class="ab-principle__num">01</span>
+          <h3>Інженерія як головне</h3>
+          <p>Код — це не витрата, це актив. Кожен рядок, що ми пишемо, повинен витримати навантаження часу. Ми ставимося до архітектури як до стратегії.</p>
+        </article>
+        <article class="ab-principle">
+          <span class="ab-principle__num">02</span>
+          <h3>Фокус замість масштабу</h3>
+          <p>Ми беремо обмежену кількість проєктів одночасно. Це навмисно. Глибина вимагає концентрації — а концентрація вимагає меж.</p>
+        </article>
+        <article class="ab-principle">
+          <span class="ab-principle__num">03</span>
+          <h3>Ремесло, що накопичується</h3>
+          <p>Найкращий код виглядає неминучим у ретроспективі. Кожна деталь на своєму місці — не тому що легко, а тому що хтось достатньо дбав.</p>
+        </article>
+        <article class="ab-principle">
+          <span class="ab-principle__num">04</span>
+          <h3>Довгострокова перспектива</h3>
+          <p>Ми не женемося за трендами. Ми використовуємо технології з міцними основами та довгим терміном служби. І проєктуємо системи, що ростуть.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="ab-process" aria-label="Як ми працюємо">
+      <div class="section-head" style="max-width:var(--maxw);margin:0 auto;padding:0 clamp(1.25rem,5vw,4rem);margin-bottom:clamp(3rem,6vw,5rem)">
+        <p class="eyebrow" data-reveal>Як ми працюємо</p>
+        <h2 class="section-title" data-reveal>П'ять глав.<br>Один стандарт.</h2>
+      </div>
+
+      <div class="ab-process__steps" style="max-width:var(--maxw);margin:0 auto">
+        <article class="ab-step">
+          <span class="ab-step__num">01</span>
+          <h3 class="ab-step__title">Ідея</h3>
+          <p>Уточнюємо цілі, обмеження та першу форму продукту разом із клієнтом.</p>
+        </article>
+        <article class="ab-step">
+          <span class="ab-step__num">02</span>
+          <h3 class="ab-step__title">Архітектура</h3>
+          <p>Система набуває структури. Рішення, які витримають навантаження.</p>
+        </article>
+        <article class="ab-step">
+          <span class="ab-step__num">03</span>
+          <h3 class="ab-step__title">Розробка</h3>
+          <p>Шар за шаром: UI, логіка, база даних, API, тести.</p>
+        </article>
+        <article class="ab-step">
+          <span class="ab-step__num">04</span>
+          <h3 class="ab-step__title">Запуск</h3>
+          <p>Продукт виходить у реальний світ. Запуск під контролем команди.</p>
+        </article>
+        <article class="ab-step">
+          <span class="ab-step__num">05</span>
+          <h3 class="ab-step__title">Результат</h3>
+          <p>Живий продукт. Метрики. Ріст. Наступна ітерація.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-strip" aria-label="Контакт">
+      <div class="cta-strip__glow" aria-hidden="true"></div>
+      <div class="cta-strip__inner">
+        <p class="eyebrow" data-reveal>Почати роботу</p>
+        <h2 class="cta-strip__title" data-reveal>Є продукт, що<br>варто побудувати?</h2>
+        <a href="index.html#contact" class="btn btn--primary" data-reveal>Почати проєкт</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__brand">
+      <span class="nav__mark" aria-hidden="true"></span>
+      <span>Aster Digital</span>
+    </div>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="services.html">Послуги</a>
+      <a href="work.html">Роботи</a>
+      <a href="about.html">Про нас</a>
+      <a href="index.html#contact">Контакт</a>
+    </nav>
+    <p>&copy; <span id="year"></span> Aster Digital. Інженерно. Навмисно. Точно.</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    if (typeof gsap === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isMobile = window.matchMedia('(pointer: coarse)').matches;
+
+    /* ── hero title lines ── */
+    const lines = document.querySelectorAll('.ab-title-line span');
+    const sub   = document.querySelector('.ab-hero__sub');
+    const logo  = document.querySelector('.ab-hero__logo');
+    const scrl  = document.querySelector('.ab-hero__scroll');
+
+    if (reduced) {
+      lines.forEach(l => l.style.transform = 'none');
+      [sub, logo, scrl].forEach(el => { if (el) { el.style.opacity = 1; el.style.transform = 'none'; } });
+    } else {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.to(lines,  { y: '0%', duration: 1.1, stagger: 0.1 }, 0.2)
+        .to(sub,    { autoAlpha: 1, y: 0, duration: 0.9 }, '-=0.6')
+        .to(logo,   { autoAlpha: 1, scale: 1, duration: 1.4, ease: 'power2.out' }, '-=0.8')
+        .to(scrl,   { autoAlpha: 1, duration: 0.7 }, '-=0.4');
+
+      if (document.hidden) tl.progress(1);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && tl.progress() < 0.01) tl.play(0);
+      });
+
+      /* logo mouse parallax */
+      if (!isMobile && logo) {
+        const hero = document.querySelector('.ab-hero');
+        window.addEventListener('mousemove', e => {
+          const r  = hero.getBoundingClientRect();
+          const dx = ((e.clientX - r.left) / r.width  - 0.5) * 2;
+          const dy = ((e.clientY - r.top)  / r.height - 0.5) * 2;
+          gsap.to(logo, { x: dx * 14, y: dy * 10, duration: 1.8, ease: 'power2.out' });
+        }, { passive: true });
+      }
+
+      /* hero scroll parallax */
+      gsap.to('.ab-glow-core', {
+        yPercent: 30, ease: 'none',
+        scrollTrigger: { trigger: '.ab-hero', start: 'top top', end: 'bottom top', scrub: true },
+      });
+    }
+
+    /* ── stats counter ── */
+    document.querySelectorAll('[data-counter]').forEach(el => {
+      const target = parseInt(el.dataset.counter);
+      const suffix = el.dataset.suffix || '';
+      const start  = target > 100 ? target - 80 : 0;
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 85%',
+        once: true,
+        onEnter() {
+          gsap.fromTo({ val: start }, { val: target }, {
+            duration: 1.6, ease: 'power2.out',
+            onUpdate() { el.textContent = Math.round(this.targets()[0].val) + suffix; },
+          });
+        },
+      });
+    });
+
+    /* ── manifesto word lighting ── */
+    const mText = document.getElementById('manifestoText');
+    if (mText) {
+      const words = mText.innerHTML.split(/(\s+)/);
+      mText.innerHTML = words.map(w =>
+        w.trim() ? `<span class="word">${w}</span>` : w
+      ).join('');
+
+      const wordEls = mText.querySelectorAll('.word');
+      ScrollTrigger.create({
+        trigger: mText,
+        start: 'top 75%',
+        end: 'bottom 25%',
+        scrub: 0.5,
+        onUpdate(self) {
+          const count = Math.round(self.progress * wordEls.length);
+          wordEls.forEach((w, i) => w.classList.toggle('lit', i < count));
+        },
+      });
+    }
+
+    /* ── principles clip-path reveal ── */
+    gsap.to('.ab-principle', {
+      clipPath: 'inset(0 0 0% 0)',
+      duration: 0.7, ease: 'power2.out', stagger: 0.12,
+      scrollTrigger: { trigger: '.ab-principles__grid', start: 'top 78%' },
+    });
+
+    /* ── process steps stagger ── */
+    gsap.from('.ab-step', {
+      y: 30, autoAlpha: 0, duration: 0.8, ease: 'power3.out', stagger: 0.1,
+      scrollTrigger: { trigger: '.ab-process__steps', start: 'top 82%' },
+    });
+
+    /* ── generic reveals ── */
+    gsap.utils.toArray('[data-reveal]').forEach(el => {
+      gsap.from(el, {
+        y: 36, autoAlpha: 0, duration: 1, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%' },
+      });
+    });
+
+    window.addEventListener('load', () => ScrollTrigger.refresh());
+  })();
+  </script>
+</body>
+</html>

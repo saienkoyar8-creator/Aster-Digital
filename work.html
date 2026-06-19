@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Роботи — Aster Digital</title>
+  <meta name="description" content="Вибрані проєкти Aster Digital — SaaS-платформи, AI-інструменти, автоматизації та внутрішні системи." />
+  <meta name="theme-color" content="#060606" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ── work hero ── */
+    .wk-hero {
+      position: relative; min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding-bottom: clamp(4rem, 8vw, 7rem); overflow: hidden;
+    }
+    .wk-hero__glow {
+      position: absolute; top: 35%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 860px; height: 580px; border-radius: 50%;
+      background: radial-gradient(ellipse 58% 60% at 50% 46%,
+        rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.018) 44%, transparent 68%);
+      filter: blur(56px);
+      animation: wk-breathe 10s ease-in-out infinite;
+      pointer-events: none; z-index: 0;
+    }
+    @keyframes wk-breathe { 0%,100%{opacity:1} 50%{opacity:.6} }
+
+    .wk-hero__inner {
+      position: relative; z-index: 2;
+      max-width: var(--maxw); margin: 0 auto; width: 100%;
+      padding: 0 clamp(1.25rem, 5vw, 4rem);
+    }
+    .wk-hero__top {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      gap: 2rem; margin-bottom: 1rem; flex-wrap: wrap;
+    }
+    .wk-hero__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(5rem, 14vw, 11rem);
+      font-weight: 700; letter-spacing: -0.055em; line-height: 0.88;
+      color: var(--white); clip-path: inset(0 0 100% 0);
+    }
+    .wk-hero__meta {
+      display: flex; flex-direction: column; gap: 0.6rem; padding-bottom: 0.6rem;
+      opacity: 0; transform: translateY(16px);
+    }
+    .wk-hero__year {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.72rem; letter-spacing: 0.24em; color: var(--muted-2);
+    }
+    .wk-hero__count {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700;
+      letter-spacing: -0.03em; color: var(--white); line-height: 1;
+    }
+    .wk-hero__count span { display: block; font-size: 0.75rem; font-weight: 400; color: var(--muted); letter-spacing: 0.08em; margin-top: 0.2rem; }
+    .wk-hero__desc {
+      font-size: clamp(0.9rem, 1.3vw, 1rem); color: var(--muted);
+      max-width: 50ch; line-height: 1.68; margin-top: 2rem;
+      opacity: 0; transform: translateY(16px);
+    }
+
+    /* ── filter ── */
+    .wk-filter {
+      position: relative; z-index: 2;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+      padding: 0 clamp(1.25rem, 5vw, 4rem);
+    }
+    .wk-filter__inner {
+      max-width: var(--maxw); margin: 0 auto;
+      display: flex; gap: 0; overflow-x: auto; scrollbar-width: none;
+    }
+    .wk-filter__inner::-webkit-scrollbar { display: none; }
+    .wk-filter__btn {
+      background: none; border: none; cursor: pointer;
+      font: 500 0.8rem/1 'Space Grotesk', sans-serif;
+      letter-spacing: 0.06em; color: var(--muted-2);
+      padding: 1.1rem 1.4rem; white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.3s, border-color 0.3s;
+      flex-shrink: 0;
+    }
+    .wk-filter__btn:hover { color: var(--muted); }
+    .wk-filter__btn.is-active { color: var(--white); border-bottom-color: var(--white); }
+
+    /* ── featured projects ── */
+    .wk-featured {
+      position: relative; z-index: 2;
+      max-width: var(--maxw); margin: 0 auto;
+      padding: clamp(4rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4rem);
+      display: flex; flex-direction: column; gap: clamp(4rem, 7vw, 6rem);
+    }
+
+    .wk-proj {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 4vw, 4rem);
+      align-items: center;
+    }
+    .wk-proj:nth-child(even) .wk-proj__media { order: 2; }
+    .wk-proj:nth-child(even) .wk-proj__body  { order: 1; }
+
+    .wk-proj__media {
+      position: relative; overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      aspect-ratio: 4/3;
+      background: var(--panel);
+    }
+    .wk-proj__media img {
+      width: 100%; height: 100%; object-fit: cover;
+      transform: scale(1.06);
+      transition: transform 0.8s var(--ease);
+      will-change: transform;
+    }
+    .wk-proj__media:hover img { transform: scale(1); }
+    .wk-proj__media-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(6,6,6,0.6) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .wk-proj__media-tag {
+      position: absolute; top: 1.2rem; left: 1.2rem;
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      padding: 0.35rem 0.8rem;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+    }
+
+    .wk-proj__body {
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .wk-proj__num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.7rem; letter-spacing: 0.22em; color: var(--muted-2);
+    }
+    .wk-proj__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.05;
+      color: var(--white);
+    }
+    .wk-proj__desc {
+      font-size: 0.96rem; color: var(--muted); line-height: 1.72; max-width: 42ch;
+    }
+    .wk-proj__meta {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .wk-proj__tag {
+      font-size: 0.75rem; letter-spacing: 0.1em;
+      padding: 0.35rem 0.85rem;
+      border: 1px solid var(--line); border-radius: 100px;
+      color: var(--muted-2);
+    }
+    .wk-proj__link {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.88rem; color: var(--text); text-decoration: none;
+      font-weight: 500; letter-spacing: -0.01em;
+      margin-top: 0.5rem;
+      transition: gap 0.3s var(--ease);
+    }
+    .wk-proj__link:hover { gap: 1rem; }
+    .wk-proj__link-arrow {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 1px solid var(--line-strong);
+      display: flex; align-items: center; justify-content: center;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .wk-proj__link:hover .wk-proj__link-arrow {
+      border-color: var(--white); background: rgba(255,255,255,0.06);
+    }
+
+    /* ── placeholder media (when no real image) ── */
+    .wk-proj__placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--panel-2);
+    }
+    .wk-proj__placeholder svg {
+      width: 60px; height: 60px; opacity: 0.12;
+    }
+
+    /* ── grid projects ── */
+    .wk-grid-section {
+      position: relative; z-index: 2;
+      padding: 0 clamp(1.25rem, 5vw, 4rem) clamp(5rem, 8vw, 7rem);
+      border-top: 1px solid var(--line);
+    }
+    .wk-grid-head {
+      max-width: var(--maxw); margin: 0 auto;
+      padding: clamp(3rem, 5vw, 4.5rem) 0 clamp(2.5rem, 4vw, 3.5rem);
+      display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem;
+    }
+    .wk-grid {
+      max-width: var(--maxw); margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .wk-card {
+      position: relative; border-radius: var(--radius);
+      border: 1px solid var(--line); overflow: hidden;
+      background: var(--panel);
+      transition: border-color 0.4s;
+      cursor: pointer;
+    }
+    .wk-card:hover { border-color: rgba(255,255,255,0.2); }
+    .wk-card__thumb {
+      aspect-ratio: 16/10; overflow: hidden;
+      background: var(--panel-2);
+      position: relative;
+    }
+    .wk-card__thumb img {
+      width: 100%; height: 100%; object-fit: cover;
+      transform: scale(1.08);
+      transition: transform 0.7s var(--ease);
+      will-change: transform;
+    }
+    .wk-card:hover .wk-card__thumb img { transform: scale(1); }
+    .wk-card__thumb-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .wk-card__thumb-placeholder svg { width: 40px; height: 40px; opacity: 0.1; }
+    .wk-card__info {
+      padding: 1.5rem;
+      display: flex; flex-direction: column; gap: 0.7rem;
+    }
+    .wk-card__top {
+      display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem;
+    }
+    .wk-card__title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--white); letter-spacing: -0.01em;
+    }
+    .wk-card__badge {
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted-2); padding: 0.3rem 0.7rem;
+      border: 1px solid var(--line); border-radius: 100px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .wk-card__desc {
+      font-size: 0.85rem; color: var(--muted); line-height: 1.65;
+    }
+    .wk-card__tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.3rem;
+    }
+    .wk-card__tag {
+      font-size: 0.72rem; color: var(--muted-2);
+      padding: 0.25rem 0.65rem;
+      background: rgba(255,255,255,0.04);
+      border-radius: 100px;
+    }
+
+    /* ── cta strip ── */
+    .cta-strip {
+      position: relative; z-index: 2;
+      padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 5vw, 4rem);
+      border-top: 1px solid var(--line); overflow: hidden;
+    }
+    .cta-strip__glow {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px; height: 400px; border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(255,255,255,0.05) 0%, transparent 70%);
+      filter: blur(40px); pointer-events: none;
+    }
+    .cta-strip__inner {
+      position: relative; z-index: 1;
+      max-width: var(--maxw); margin: 0 auto;
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 2rem;
+    }
+    .cta-strip__title {
+      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-weight: 600; letter-spacing: -0.03em; line-height: 1.05;
+    }
+
+    /* ── footer ── */
+    .footer__links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer__links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+    .footer__links a:hover { color: var(--text); }
+
+    /* ── responsive ── */
+    @media (max-width: 900px) {
+      .wk-proj { grid-template-columns: 1fr; }
+      .wk-proj:nth-child(even) .wk-proj__media { order: 0; }
+      .wk-proj:nth-child(even) .wk-proj__body  { order: 0; }
+      .wk-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .wk-grid { grid-template-columns: 1fr; }
+      .wk-hero__title { font-size: clamp(4rem, 18vw, 7rem); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .wk-hero__title { clip-path: none !important; }
+      .wk-hero__meta, .wk-hero__desc { opacity: 1 !important; transform: none !important; }
+      .wk-proj__media img, .wk-card__thumb img { transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <header class="nav is-scrolled" id="nav">
+    <a href="index.html" class="nav__brand">
+      <span class="nav__mark" aria-hidden="true"></span>
+      <span>Aster Digital</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="services.html">Послуги</a>
+      <a href="work.html" aria-current="page">Роботи</a>
+      <a href="about.html">Про нас</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang-switcher" role="group" aria-label="Мова">
+        <button class="lang-btn is-active" data-lang="uk" aria-pressed="true">UA</button>
+        <button class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <a href="index.html#contact" class="nav__cta">Почати проєкт</a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="wk-hero" aria-label="Вибрані роботи">
+      <div class="wk-hero__glow" aria-hidden="true"></div>
+      <div class="wk-hero__inner">
+        <div class="wk-hero__top">
+          <h1 class="wk-hero__title">Роботи.</h1>
+          <div class="wk-hero__meta">
+            <span class="wk-hero__year">2019 — <span id="heroYear"></span></span>
+            <div class="wk-hero__count">
+              40+<span>проєктів</span>
+            </div>
+          </div>
+        </div>
+        <p class="wk-hero__desc">
+          Продукти, платформи та системи, які ми спроєктували, побудували
+          і запустили. Кожен проєкт — це відповідальність, яку ми взяли на себе.
+        </p>
+      </div>
+    </section>
+
+    <!-- FILTER -->
+    <div class="wk-filter" role="group" aria-label="Фільтр за типом">
+      <div class="wk-filter__inner">
+        <button class="wk-filter__btn is-active" data-filter="all">Всі</button>
+        <button class="wk-filter__btn" data-filter="saas">SaaS</button>
+        <button class="wk-filter__btn" data-filter="ai">AI</button>
+        <button class="wk-filter__btn" data-filter="web">Web</button>
+        <button class="wk-filter__btn" data-filter="auto">Автоматизація</button>
+        <button class="wk-filter__btn" data-filter="internal">Internal</button>
+      </div>
+    </div>
+
+    <!-- FEATURED PROJECTS -->
+    <div class="wk-featured" aria-label="Вибрані проєкти">
+
+      <!-- Project 1: Northwind -->
+      <article class="wk-proj" data-category="saas">
+        <div class="wk-proj__media">
+          <img src="public/assets/project-saas.png" alt="Northwind — аналітична SaaS-платформа" loading="lazy" />
+          <div class="wk-proj__media-overlay" aria-hidden="true"></div>
+          <span class="wk-proj__media-tag">SaaS Platform</span>
+        </div>
+        <div class="wk-proj__body">
+          <span class="wk-proj__num">01 — Вибраний проєкт</span>
+          <h2 class="wk-proj__title">Northwind</h2>
+          <p class="wk-proj__desc">
+            Аналітична платформа для обробки мільярдів подій у реальному часі.
+            Складна модель даних, гнучкий білінг та дашборди з live-оновленнями.
+            Від MVP до production за 4 місяці.
+          </p>
+          <div class="wk-proj__meta">
+            <span class="wk-proj__tag">Next.js</span>
+            <span class="wk-proj__tag">PostgreSQL</span>
+            <span class="wk-proj__tag">Stripe</span>
+            <span class="wk-proj__tag">Realtime</span>
+          </div>
+          <a href="#" class="wk-proj__link" aria-label="Переглянути кейс Northwind">
+            Переглянути кейс
+            <span class="wk-proj__link-arrow" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 6h8M6 2l4 4-4 4"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </article>
+
+      <!-- Project 2: Cipher -->
+      <article class="wk-proj" data-category="ai">
+        <div class="wk-proj__media">
+          <img src="public/assets/project-ai.png" alt="Cipher — AI-копілот для юридичного документообігу" loading="lazy" />
+          <div class="wk-proj__media-overlay" aria-hidden="true"></div>
+          <span class="wk-proj__media-tag">AI Tool</span>
+        </div>
+        <div class="wk-proj__body">
+          <span class="wk-proj__num">02 — Вибраний проєкт</span>
+          <h2 class="wk-proj__title">Cipher</h2>
+          <p class="wk-proj__desc">
+            AI-копілот для юридичного документообігу. Retrieval-система
+            на власних даних, агентний шар та повний контроль над поведінкою моделі.
+            Evals для кожного критичного сценарію.
+          </p>
+          <div class="wk-proj__meta">
+            <span class="wk-proj__tag">Vercel AI SDK</span>
+            <span class="wk-proj__tag">RAG</span>
+            <span class="wk-proj__tag">Anthropic</span>
+            <span class="wk-proj__tag">Evals</span>
+          </div>
+          <a href="#" class="wk-proj__link" aria-label="Переглянути кейс Cipher">
+            Переглянути кейс
+            <span class="wk-proj__link-arrow" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 6h8M6 2l4 4-4 4"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- MORE PROJECTS GRID -->
+    <section class="wk-grid-section" aria-label="Більше проєктів">
+      <div class="wk-grid-head">
+        <div>
+          <p class="eyebrow" data-reveal>Більше проєктів</p>
+          <h2 class="section-title" data-reveal style="margin-top:1rem">Ще з нашого<br>портфоліо.</h2>
+        </div>
+      </div>
+
+      <div class="wk-grid">
+
+        <article class="wk-card" data-category="auto">
+          <div class="wk-card__thumb">
+            <img src="public/assets/project-automation.png" alt="FlowCore — система автоматизації" loading="lazy" />
+          </div>
+          <div class="wk-card__info">
+            <div class="wk-card__top">
+              <h3 class="wk-card__title">FlowCore</h3>
+              <span class="wk-card__badge">Автоматизація</span>
+            </div>
+            <p class="wk-card__desc">
+              Система оркестрації бізнес-процесів. 200+ воркфлоу, інтеграція з 15 зовнішніми сервісами.
+            </p>
+            <div class="wk-card__tags">
+              <span class="wk-card__tag">n8n</span>
+              <span class="wk-card__tag">Webhooks</span>
+              <span class="wk-card__tag">Custom API</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="wk-card" data-category="internal">
+          <div class="wk-card__thumb">
+            <img src="public/assets/project-internal.png" alt="Axis — внутрішня операційна платформа" loading="lazy" />
+          </div>
+          <div class="wk-card__info">
+            <div class="wk-card__top">
+              <h3 class="wk-card__title">Axis</h3>
+              <span class="wk-card__badge">Internal</span>
+            </div>
+            <p class="wk-card__desc">
+              Внутрішня операційна платформа для фінтех-компанії. RBAC, audit log, дашборди.
+            </p>
+            <div class="wk-card__tags">
+              <span class="wk-card__tag">React</span>
+              <span class="wk-card__tag">RBAC</span>
+              <span class="wk-card__tag">PostgreSQL</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="wk-card" data-category="web">
+          <div class="wk-card__thumb">
+            <div class="wk-card__thumb-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1"><rect x="4" y="8" width="32" height="24" rx="2"/><line x1="4" y1="14" x2="36" y2="14"/></svg>
+            </div>
+          </div>
+          <div class="wk-card__info">
+            <div class="wk-card__top">
+              <h3 class="wk-card__title">Crestline</h3>
+              <span class="wk-card__badge">Web</span>
+            </div>
+            <p class="wk-card__desc">
+              Корпоративний сайт з кастомним CMS та мультимовною підтримкою.
+            </p>
+            <div class="wk-card__tags">
+              <span class="wk-card__tag">Next.js</span>
+              <span class="wk-card__tag">Sanity</span>
+              <span class="wk-card__tag">i18n</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="wk-card" data-category="saas">
+          <div class="wk-card__thumb">
+            <div class="wk-card__thumb-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1"><rect x="4" y="4" width="15" height="15" rx="1"/><rect x="21" y="4" width="15" height="15" rx="1"/><rect x="4" y="21" width="15" height="15" rx="1"/><rect x="21" y="21" width="15" height="15" rx="1"/></svg>
+            </div>
+          </div>
+          <div class="wk-card__info">
+            <div class="wk-card__top">
+              <h3 class="wk-card__title">Vanta</h3>
+              <span class="wk-card__badge">SaaS</span>
+            </div>
+            <p class="wk-card__desc">
+              B2B SaaS-платформа для управління командами. Auth, billing, multi-tenant.
+            </p>
+            <div class="wk-card__tags">
+              <span class="wk-card__tag">Auth.js</span>
+              <span class="wk-card__tag">Stripe</span>
+              <span class="wk-card__tag">Prisma</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="wk-card" data-category="ai">
+          <div class="wk-card__thumb">
+            <div class="wk-card__thumb-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1"><circle cx="20" cy="20" r="8"/><path d="M20 4v4M20 32v4M4 20h4M32 20h4"/><path d="M8.6 8.6l2.8 2.8M28.6 28.6l2.8 2.8M8.6 31.4l2.8-2.8M28.6 11.4l2.8-2.8"/></svg>
+            </div>
+          </div>
+          <div class="wk-card__info">
+            <div class="wk-card__top">
+              <h3 class="wk-card__title">Prism</h3>
+              <span class="wk-card__badge">AI</span>
+            </div>
+            <p class="wk-card__desc">
+              AI-асистент для команди підтримки. Автоматизація відповідей, routing, summary.
+            </p>
+            <div class="wk-card__tags">
+              <span class="wk-card__tag">OpenAI</span>
+              <span class="wk-card__tag">RAG</span>
+              <span class="wk-card__tag">Slack API</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="wk-card" data-category="auto">
+          <div class="wk-card__thumb">
+            <div class="wk-card__thumb-placeholder" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="white" stroke-width="1"><polyline points="6,20 14,12 22,24 30,16"/><circle cx="6" cy="20" r="2"/><circle cx="14" cy="12" r="2"/><circle cx="22" cy="24" r="2"/><circle cx="30" cy="16" r="2"/></svg>
+            </div>
+          </div>
+          <div class="wk-card__info">
+            <div class="wk-card__top">
+              <h3 class="wk-card__title">Relay</h3>
+              <span class="wk-card__badge">Автоматизація</span>
+            </div>
+            <p class="wk-card__desc">
+              Пайплайн синхронізації даних між CRM, ERP та аналітичною платформою.
+            </p>
+            <div class="wk-card__tags">
+              <span class="wk-card__tag">Zapier</span>
+              <span class="wk-card__tag">REST API</span>
+              <span class="wk-card__tag">CRON</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-strip" aria-label="Почати проєкт">
+      <div class="cta-strip__glow" aria-hidden="true"></div>
+      <div class="cta-strip__inner">
+        <p class="eyebrow" data-reveal>Наступний проєкт</p>
+        <h2 class="cta-strip__title" data-reveal>Ваш продукт<br>міг би бути тут.</h2>
+        <a href="index.html#contact" class="btn btn--primary" data-reveal>Обговорити проєкт</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__brand">
+      <span class="nav__mark" aria-hidden="true"></span>
+      <span>Aster Digital</span>
+    </div>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="services.html">Послуги</a>
+      <a href="work.html">Роботи</a>
+      <a href="about.html">Про нас</a>
+      <a href="index.html#contact">Контакт</a>
+    </nav>
+    <p>&copy; <span id="year"></span> Aster Digital. Інженерно. Навмисно. Точно.</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    'use strict';
+    if (typeof gsap === 'undefined') return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* year in hero */
+    const heroYearEl = document.getElementById('heroYear');
+    if (heroYearEl) heroYearEl.textContent = new Date().getFullYear();
+
+    /* ── hero entrance ── */
+    const title = document.querySelector('.wk-hero__title');
+    const meta  = document.querySelector('.wk-hero__meta');
+    const desc  = document.querySelector('.wk-hero__desc');
+
+    if (reduced) {
+      if (title) title.style.clipPath = 'none';
+      [meta, desc].forEach(el => { if (el) { el.style.opacity = 1; el.style.transform = 'none'; } });
+    } else {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+      tl.to(title, { clipPath: 'inset(0 0 0% 0)', duration: 1.2, ease: 'power2.inOut' }, 0.2)
+        .to(meta,  { autoAlpha: 1, y: 0, duration: 0.9 }, '-=0.6')
+        .to(desc,  { autoAlpha: 1, y: 0, duration: 0.9 }, '-=0.7');
+
+      if (document.hidden) tl.progress(1);
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && tl.progress() < 0.01) tl.play(0);
+      });
+    }
+
+    /* ── filter ── */
+    const filterBtns = document.querySelectorAll('.wk-filter__btn');
+    const allItems   = document.querySelectorAll('[data-category]');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+
+        const cat = btn.dataset.filter;
+        allItems.forEach(item => {
+          const match = cat === 'all' || item.dataset.category === cat;
+          gsap.to(item, {
+            autoAlpha: match ? 1 : 0.15,
+            scale: match ? 1 : 0.97,
+            duration: 0.4, ease: 'power2.out',
+          });
+        });
+      });
+    });
+
+    /* ── featured projects reveal ── */
+    document.querySelectorAll('.wk-proj').forEach((proj, i) => {
+      const media = proj.querySelector('.wk-proj__media');
+      const body  = proj.querySelector('.wk-proj__body');
+      const dir   = i % 2 === 0 ? -40 : 40;
+
+      gsap.from(media, {
+        x: dir, autoAlpha: 0, duration: 1.1, ease: 'power3.out',
+        scrollTrigger: { trigger: proj, start: 'top 80%' },
+      });
+      gsap.from(body, {
+        x: -dir, autoAlpha: 0, duration: 1.1, ease: 'power3.out', delay: 0.12,
+        scrollTrigger: { trigger: proj, start: 'top 80%' },
+      });
+    });
+
+    /* ── grid cards reveal ── */
+    gsap.from('.wk-card', {
+      y: 40, autoAlpha: 0, duration: 0.8, ease: 'power3.out', stagger: 0.1,
+      scrollTrigger: { trigger: '.wk-grid', start: 'top 82%' },
+    });
+
+    /* ── generic reveals ── */
+    gsap.utils.toArray('[data-reveal]').forEach(el => {
+      gsap.from(el, {
+        y: 36, autoAlpha: 0, duration: 1, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 88%' },
+      });
+    });
+
+    /* ── parallax on featured media ── */
+    if (!window.matchMedia('(pointer: coarse)').matches) {
+      document.querySelectorAll('.wk-proj__media').forEach(media => {
+        const img = media.querySelector('img');
+        if (!img) return;
+        media.addEventListener('mousemove', e => {
+          const r  = media.getBoundingClientRect();
+          const dx = ((e.clientX - r.left) / r.width  - 0.5) * 2;
+          const dy = ((e.clientY - r.top)  / r.height - 0.5) * 2;
+          gsap.to(img, { x: dx * 8, y: dy * 6, duration: 1, ease: 'power2.out' });
+        }, { passive: true });
+        media.addEventListener('mouseleave', () => {
+          gsap.to(img, { x: 0, y: 0, duration: 0.8, ease: 'power2.out' });
+        });
+      });
+    }
+
+    window.addEventListener('load', () => ScrollTrigger.refresh());
+  })();
+  </script>
+</body>
+</html>
