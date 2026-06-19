@@ -313,8 +313,27 @@
         <button class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
       </div>
       <a href="index.html#contact" class="nav__cta">Почати проєкт</a>
+      <button class="nav__burger" id="navBurger" aria-label="Відкрити меню" aria-expanded="false">
+        <span></span><span></span>
+      </button>
     </div>
   </header>
+
+  <div class="nav__overlay" id="navOverlay" aria-hidden="true" role="dialog" aria-label="Навігація">
+    <nav class="nav__overlay-links">
+      <a href="services.html">Послуги</a>
+      <a href="work.html">Роботи</a>
+      <a href="about.html">Про нас</a>
+      <a href="index.html#contact">Контакт</a>
+    </nav>
+    <div class="nav__overlay-bottom">
+      <div class="lang-switcher" role="group" aria-label="Мова">
+        <button class="lang-btn is-active" data-lang="uk" aria-pressed="true">UA</button>
+        <button class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+      </div>
+      <a href="index.html#contact" class="nav__overlay-cta">Почати проєкт →</a>
+    </div>
+  </div>
 
   <main>
 

@@ -8,13 +8,56 @@
   const isMobile = window.matchMedia("(pointer: coarse)").matches;
 
   /* ---------- year ---------- */
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   /* ---------- nav scroll state ---------- */
   const nav = document.getElementById("nav");
-  const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 40);
+  const onScroll = () => nav && nav.classList.toggle("is-scrolled", window.scrollY > 40);
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+
+  /* ---------- mobile nav ---------- */
+  const burger  = document.getElementById("navBurger");
+  const overlay = document.getElementById("navOverlay");
+
+  function openNav() {
+    burger.classList.add("is-open");
+    burger.setAttribute("aria-expanded", "true");
+    overlay.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    if (typeof gsap !== "undefined") {
+      gsap.fromTo(
+        overlay.querySelectorAll(".nav__overlay-links a"),
+        { y: 40, autoAlpha: 0 },
+        { y: 0, autoAlpha: 1, stagger: 0.08, duration: 0.55, ease: "power3.out", delay: 0.1 }
+      );
+    }
+  }
+
+  function closeNav() {
+    burger.classList.remove("is-open");
+    burger.setAttribute("aria-expanded", "false");
+    overlay.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  if (burger && overlay) {
+    burger.addEventListener("click", () => {
+      burger.classList.contains("is-open") ? closeNav() : openNav();
+    });
+
+    // close on link click
+    overlay.querySelectorAll("a").forEach(a => a.addEventListener("click", closeNav));
+
+    // close on Escape
+    document.addEventListener("keydown", e => {
+      if (e.key === "Escape" && overlay.classList.contains("is-open")) closeNav();
+    });
+  }
 
   /* ---------- contact form ---------- */
   const form = document.getElementById("contactForm");
@@ -99,7 +142,7 @@
     if (!document.hidden && introTl.progress() < 0.01) introTl.play(0);
   });
 
-  /* Multi-depth mouse parallax — logo / lights / text all at different depths */
+  /* Multi-depth mouse parallax — desktop only */
   if (!isMobile) {
     const heroEl = document.querySelector(".hero");
     window.addEventListener("mousemove", (e) => {
@@ -126,23 +169,33 @@
     }, { passive: true });
   }
 
-  /* Hero scroll parallax — layered depth */
-  gsap.to("#heroLogoWrap", {
+  /* Hero scroll parallax — desktop only (too heavy on mobile) */
+  if (isMobile) {
+    // on mobile just fade lights slightly on scroll — no transform
+    gsap.to(".hl", {
+      autoAlpha: 0.4, ease: "none",
+      scrollTrigger: { trigger: "#hero", start: "top top", end: "80% top", scrub: true },
+    });
+  }
+
+  if (!isMobile) gsap.to("#heroLogoWrap", {
     yPercent: 18, scale: 0.92, ease: "none",
     scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true },
   });
-  gsap.to(".hl--vol, .hl--core", {
-    yPercent: 25, ease: "none",
-    scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true },
-  });
-  gsap.to(".hero__brand", {
-    yPercent: -10, ease: "none",
-    scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true },
-  });
-  gsap.to(".hero__slogan", {
-    yPercent: 12, ease: "none",
-    scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true },
-  });
+  if (!isMobile) {
+    gsap.to(".hl--vol, .hl--core", {
+      yPercent: 25, ease: "none",
+      scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true },
+    });
+    gsap.to(".hero__brand", {
+      yPercent: -10, ease: "none",
+      scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true },
+    });
+    gsap.to(".hero__slogan", {
+      yPercent: 12, ease: "none",
+      scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true },
+    });
+  }
 
   /* ---------- generic reveal for headings ---------- */
   gsap.utils.toArray("[data-reveal]").forEach((el) => {
