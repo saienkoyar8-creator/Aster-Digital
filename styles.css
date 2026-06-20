@@ -250,7 +250,7 @@ img { display: block; max-width: 100%; }
 }
 .hero__logo-wrap {
   position: relative;
-  width: min(40vw, 440px);
+  width: min(46vw, 520px);
   aspect-ratio: 1;
   display: grid; place-items: center;
   transform-style: preserve-3d;
@@ -265,9 +265,20 @@ img { display: block; max-width: 100%; }
 @keyframes ringRotate { to { transform: rotate(360deg); } }
 
 .hero__logo {
-  width: 74%; height: 74%; object-fit: contain; position: relative; z-index: 2;
-  filter: drop-shadow(0 0 32px rgba(255,255,255,0.22)) drop-shadow(0 0 8px rgba(255,255,255,0.15));
+  width: 78%; height: 78%; object-fit: contain; position: relative; z-index: 2;
+  filter: drop-shadow(0 0 48px rgba(255,255,255,0.28)) drop-shadow(0 0 12px rgba(255,255,255,0.18));
   will-change: transform;
+  animation: logoBreathe 6s ease-in-out infinite;
+}
+@keyframes logoBreathe {
+  0%, 100% {
+    filter: drop-shadow(0 0 48px rgba(255,255,255,0.28)) drop-shadow(0 0 12px rgba(255,255,255,0.18));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 72px rgba(255,255,255,0.42)) drop-shadow(0 0 20px rgba(255,255,255,0.26));
+    transform: scale(1.03);
+  }
 }
 
 /* RIGHT: slogan lines */
@@ -1001,7 +1012,7 @@ img { display: block; max-width: 100%; }
   .hero__visual { order: -1; margin: 0 auto; }
   .hero__brand  { align-items: center; }
   .hero__slogan { display: none; }
-  .hero__logo-wrap { width: min(55vw, 280px); }
+  .hero__logo-wrap { width: min(55vw, 320px); }
   .hero__company { font-size: clamp(2.6rem, 6vw, 3.6rem); }
   .hero__brand-cta { align-self: center; }
 
@@ -1051,7 +1062,7 @@ img { display: block; max-width: 100%; }
     letter-spacing: -0.04em;
   }
   .hero__studio { font-size: 0.68rem; }
-  .hero__logo-wrap { width: min(70vw, 240px); }
+  .hero__logo-wrap { width: min(70vw, 280px); }
 
   /* Lights — simplified on mobile */
   .hl--atmo { width: 100vw; height: 60vw; filter: blur(36px); }
