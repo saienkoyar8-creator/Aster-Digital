@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Роботи — Aster Digital</title>
-  <meta name="description" content="Реальні проєкти Aster Digital — e-commerce, веб-сайти, медіакіти, SaaS. Ferdinant, Noirveil, SlimLab, Yes or Not та інші." />
+  <meta name="description" content="Реальні проєкти Aster Digital — Ferdinant, Noirveil, Yes or Not, SlimLab, Jaydee. E-commerce, веб-сайти, медіакіти." />
   <meta name="theme-color" content="#060606" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,16 +14,16 @@
   <style>
     /* ── hero ── */
     .wk-hero {
-      position: relative; min-height: 90vh;
+      position: relative; min-height: 88vh;
       display: flex; flex-direction: column; justify-content: flex-end;
       padding-bottom: clamp(3rem, 6vw, 5rem); overflow: hidden;
     }
     .wk-hero__glow {
-      position: absolute; top: 35%; left: 50%;
+      position: absolute; top: 38%; left: 50%;
       transform: translate(-50%, -50%);
       width: 900px; height: 600px; border-radius: 50%;
       background: radial-gradient(ellipse 58% 60% at 50% 46%,
-        rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.018) 44%, transparent 68%);
+        rgba(255,255,255,0.055) 0%, rgba(255,255,255,0.016) 44%, transparent 68%);
       filter: blur(56px); pointer-events: none; z-index: 0;
       animation: wkBreathe 10s ease-in-out infinite;
     }
@@ -39,7 +39,7 @@
     }
     .wk-hero__title {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(5rem, 14vw, 11rem);
+      font-size: clamp(5rem, 13vw, 10.5rem);
       font-weight: 700; letter-spacing: -0.055em; line-height: 0.88;
       color: var(--white); clip-path: inset(0 0 100% 0);
     }
@@ -48,8 +48,8 @@
       gap: 2rem; margin-top: 2.5rem; flex-wrap: wrap;
     }
     .wk-hero__desc {
-      font-size: clamp(0.9rem, 1.3vw, 1rem); color: var(--muted);
-      max-width: 44ch; line-height: 1.7; opacity: 0; transform: translateY(16px);
+      font-size: clamp(0.88rem, 1.2vw, 1rem); color: var(--muted);
+      max-width: 44ch; line-height: 1.75; opacity: 0; transform: translateY(16px);
     }
     .wk-hero__stats {
       display: flex; gap: 2.5rem; flex-shrink: 0;
@@ -61,24 +61,24 @@
       font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 700;
       letter-spacing: -0.04em; color: var(--white); line-height: 1;
     }
-    .wk-stat__label { font-size: 0.72rem; color: var(--muted-2); letter-spacing: 0.08em; }
+    .wk-stat__label { font-size: 0.7rem; color: var(--muted-2); letter-spacing: 0.08em; text-transform: uppercase; }
 
     /* ── filter ── */
     .wk-filter {
       border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
       position: sticky; top: 0; z-index: 10;
-      background: rgba(6,6,6,0.85); backdrop-filter: blur(12px);
+      background: rgba(6,6,6,0.88); backdrop-filter: blur(14px);
     }
     .wk-filter__inner {
       max-width: var(--maxw); margin: 0 auto;
       padding: 0 clamp(1.25rem, 5vw, 4rem);
-      display: flex; gap: 0; overflow-x: auto; scrollbar-width: none;
+      display: flex; overflow-x: auto; scrollbar-width: none;
     }
     .wk-filter__inner::-webkit-scrollbar { display: none; }
     .wk-filter__btn {
       background: none; border: none; cursor: pointer;
-      font: 500 0.78rem/1 'Space Grotesk', sans-serif;
-      letter-spacing: 0.08em; color: var(--muted-2);
+      font: 500 0.76rem/1 'Space Grotesk', sans-serif;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-2);
       padding: 1rem 1.3rem; white-space: nowrap;
       border-bottom: 2px solid transparent;
       transition: color 0.3s, border-color 0.3s; flex-shrink: 0;
@@ -86,135 +86,135 @@
     .wk-filter__btn:hover { color: var(--muted); }
     .wk-filter__btn.is-active { color: var(--white); border-bottom-color: var(--white); }
 
-    /* ── bento grid ── */
+    /* ══════════════════════════════════════
+       BENTO GRID
+    ══════════════════════════════════════ */
     .wk-bento {
       max-width: var(--maxw); margin: 0 auto;
-      padding: clamp(3rem, 5vw, 5rem) clamp(1.25rem, 5vw, 4rem);
+      padding: clamp(2.5rem, 4vw, 4rem) clamp(1.25rem, 5vw, 4rem);
       display: grid;
       grid-template-columns: repeat(12, 1fr);
-      grid-auto-rows: 280px;
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
 
-    /* Card sizes */
-    .wk-card { position: relative; border-radius: var(--radius); overflow: hidden; cursor: pointer; }
-    .wk-card--lg   { grid-column: span 7; grid-row: span 2; }
-    .wk-card--tall { grid-column: span 5; grid-row: span 2; }
-    .wk-card--wide { grid-column: span 7; grid-row: span 1; }
-    .wk-card--md   { grid-column: span 5; grid-row: span 1; }
-    .wk-card--full { grid-column: span 12; grid-row: span 1; }
+    /* ── card shell ── */
+    .wk-card {
+      position: relative; border-radius: 16px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      overflow: hidden;
+      transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+      display: flex; flex-direction: column;
+    }
+    .wk-card:hover {
+      border-color: rgba(255,255,255,0.2);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.06), 0 28px 64px rgba(0,0,0,0.5);
+    }
+    .wk-card--lg   { grid-column: span 7; }
+    .wk-card--md   { grid-column: span 5; }
+    .wk-card--full { grid-column: span 12; }
 
-    .wk-card__thumb {
-      position: absolute; inset: 0;
+    /* ── browser chrome bar ── */
+    .wk-card__chrome {
+      flex-shrink: 0;
+      display: flex; align-items: center; gap: 0.65rem;
+      padding: 0.6rem 0.9rem;
+      background: rgba(20,20,20,0.98);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 2;
+    }
+    .wk-card__dots {
+      display: flex; gap: 5px; flex-shrink: 0;
+    }
+    .wk-card__dots span {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    }
+    .wk-card__dots span:nth-child(1) { background: #ff5f57; }
+    .wk-card__dots span:nth-child(2) { background: #febc2e; }
+    .wk-card__dots span:nth-child(3) { background: #28c840; }
+    .wk-card__url-bar { flex: 1; text-align: center; }
+    .wk-card__url {
+      display: inline-block;
+      font-size: 0.7rem; color: rgba(255,255,255,0.38); letter-spacing: 0.02em;
+      background: rgba(255,255,255,0.06); border-radius: 5px;
+      padding: 0.22rem 0.75rem;
+      max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .wk-card__ext {
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      width: 24px; height: 24px; border-radius: 5px;
+      background: rgba(255,255,255,0.06);
+      text-decoration: none; color: rgba(255,255,255,0.3);
+      transition: background 0.25s, color 0.25s;
+    }
+    .wk-card__ext:hover { background: rgba(255,255,255,0.15); color: var(--white); }
+    .wk-card__ext svg { width: 11px; height: 11px; stroke: currentColor; fill: none; }
+
+    /* ── screenshot area ── */
+    .wk-card__screen {
+      flex: 1; overflow: hidden;
+      position: relative; min-height: 260px;
+    }
+    .wk-card--lg   .wk-card__screen { min-height: 340px; }
+    .wk-card--full .wk-card__screen { min-height: 400px; }
+
+    .wk-card__screen img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block;
+      transition: transform 0.75s var(--ease);
+      will-change: transform;
+    }
+    .wk-card:hover .wk-card__screen img { transform: scale(1.04); }
+
+    /* Very subtle bottom fade — max ~15% darkening, no blur */
+    .wk-card__screen::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 25%;
+      background: linear-gradient(to top, rgba(13,13,13,0.45) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    /* ── info footer ── */
+    .wk-card__info {
+      flex-shrink: 0;
+      padding: 1.1rem 1.4rem 1.4rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
       background: var(--panel);
     }
-    .wk-card__thumb img {
-      width: 100%; height: 100%;
-      object-fit: cover; object-position: top;
-      transition: transform 0.8s var(--ease), filter 0.5s;
-      will-change: transform;
-      filter: brightness(0.85);
-    }
-    .wk-card:hover .wk-card__thumb img {
-      transform: scale(1.05);
-      filter: brightness(0.6);
-    }
-
-    /* Overlay */
-    .wk-card__overlay {
-      position: absolute; inset: 0;
-      background: linear-gradient(to top,
-        rgba(6,6,6,0.92) 0%,
-        rgba(6,6,6,0.4) 40%,
-        transparent 70%);
-      transition: background 0.5s;
-    }
-    .wk-card:hover .wk-card__overlay {
-      background: linear-gradient(to top,
-        rgba(6,6,6,0.97) 0%,
-        rgba(6,6,6,0.7) 50%,
-        rgba(6,6,6,0.2) 100%);
-    }
-
-    .wk-card__body {
-      position: absolute; inset: 0;
-      padding: 1.75rem;
-      display: flex; flex-direction: column; justify-content: flex-end;
+    .wk-card__meta {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; margin-bottom: 0.4rem;
     }
     .wk-card__tag {
-      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
-      padding: 0.3rem 0.75rem;
-      background: rgba(255,255,255,0.07);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 100px;
-      width: fit-content; margin-bottom: 0.75rem;
+      font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--muted-2);
     }
+    .wk-card__year { font-size: 0.68rem; color: var(--muted-2); }
     .wk-card__name {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.3rem, 2.5vw, 2rem);
-      font-weight: 700; letter-spacing: -0.03em; line-height: 1.1;
-      color: var(--white); margin-bottom: 0.5rem;
+      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+      font-weight: 700; letter-spacing: -0.025em; color: var(--white);
+      margin-bottom: 0.4rem;
     }
     .wk-card__desc {
-      font-size: 0.875rem; color: rgba(255,255,255,0.6); line-height: 1.6;
-      max-width: 44ch;
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.4s var(--ease), opacity 0.4s;
-      opacity: 0;
+      font-size: 0.82rem; color: var(--muted); line-height: 1.65;
+      margin-bottom: 0.6rem;
     }
-    .wk-card:hover .wk-card__desc { max-height: 80px; opacity: 1; }
-
-    .wk-card__tags {
-      display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.75rem;
-      transform: translateY(8px); opacity: 0;
-      transition: transform 0.4s var(--ease), opacity 0.4s 0.05s;
+    .wk-card__pills {
+      display: flex; flex-wrap: wrap; gap: 0.35rem; list-style: none;
     }
-    .wk-card:hover .wk-card__tags { transform: translateY(0); opacity: 1; }
-    .wk-card__pill {
-      font-size: 0.68rem; letter-spacing: 0.06em;
-      color: rgba(255,255,255,0.5);
-      padding: 0.25rem 0.6rem;
-      background: rgba(255,255,255,0.06);
+    .wk-card__pills li {
+      font-size: 0.67rem; letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.38);
+      padding: 0.22rem 0.55rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 100px;
     }
 
-    .wk-card__link {
-      position: absolute; top: 1.25rem; right: 1.25rem;
-      width: 36px; height: 36px; border-radius: 50%;
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.15);
-      display: flex; align-items: center; justify-content: center;
-      text-decoration: none;
-      transform: scale(0.8); opacity: 0;
-      transition: transform 0.35s var(--ease), opacity 0.35s, background 0.3s;
-    }
-    .wk-card:hover .wk-card__link { transform: scale(1); opacity: 1; }
-    .wk-card__link:hover { background: rgba(255,255,255,0.18); }
-    .wk-card__link svg { width: 14px; height: 14px; stroke: var(--white); }
-
-    /* Year badge */
-    .wk-card__year {
-      position: absolute; bottom: 1.75rem; right: 1.75rem;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.7rem; letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.3);
-    }
-
-    /* ── related projects strip ── */
-    .wk-related {
-      border-top: 1px solid var(--line);
-      padding: clamp(4rem, 7vw, 6rem) clamp(1.25rem, 5vw, 4rem);
-    }
-    .wk-related__inner { max-width: var(--maxw); margin: 0 auto; }
-    .wk-related__head {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      gap: 2rem; margin-bottom: clamp(2.5rem, 4vw, 4rem);
-    }
-
-    /* ── cta strip ── */
+    /* ── CTA strip ── */
     .cta-strip {
       position: relative; z-index: 2;
       padding: clamp(5rem, 10vw, 9rem) clamp(1.25rem, 5vw, 4rem);
@@ -224,12 +224,11 @@
       position: absolute; top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       width: 600px; height: 400px; border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(255,255,255,0.05) 0%, transparent 70%);
+      background: radial-gradient(ellipse, rgba(255,255,255,0.045) 0%, transparent 70%);
       filter: blur(40px); pointer-events: none;
     }
     .cta-strip__inner {
-      position: relative; z-index: 1;
-      max-width: var(--maxw); margin: 0 auto;
+      position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto;
       display: flex; flex-direction: column; align-items: center;
       text-align: center; gap: 2rem;
     }
@@ -238,35 +237,25 @@
       font-weight: 600; letter-spacing: -0.03em; line-height: 1.05;
     }
 
-    /* ── footer ── */
-    .footer__links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    .footer__links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
-    .footer__links a:hover { color: var(--text); }
-
     /* ── responsive ── */
     @media (max-width: 1024px) {
-      .wk-bento {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 260px;
-      }
-      .wk-card--lg, .wk-card--wide, .wk-card--full { grid-column: span 2; }
-      .wk-card--tall, .wk-card--md { grid-column: span 1; }
+      .wk-bento { grid-template-columns: 1fr 1fr; }
+      .wk-card--lg, .wk-card--full { grid-column: span 2; }
+      .wk-card--md { grid-column: span 1; }
     }
-    @media (max-width: 600px) {
-      .wk-bento {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 240px;
-      }
-      .wk-card--lg, .wk-card--tall, .wk-card--wide, .wk-card--md, .wk-card--full {
-        grid-column: span 1; grid-row: span 1;
-      }
+    @media (max-width: 640px) {
+      .wk-bento { grid-template-columns: 1fr; gap: 1rem; }
+      .wk-card--lg, .wk-card--md, .wk-card--full { grid-column: span 1; }
+      .wk-card__screen { min-height: 200px !important; }
+      .wk-card--full .wk-card__screen { min-height: 220px !important; }
       .wk-hero__stats { gap: 1.5rem; }
-      .wk-card__desc { display: none; }
+      .wk-stat { text-align: left; }
+      .wk-card--full .wk-card__info { grid-template-columns: 1fr !important; }
     }
     @media (prefers-reduced-motion: reduce) {
       .wk-hero__title { clip-path: none !important; }
       .wk-hero__desc, .wk-hero__stats { opacity: 1 !important; transform: none !important; }
-      .wk-card__thumb img { transition: none !important; }
+      .wk-card__screen img { transition: none; }
     }
   </style>
 </head>
@@ -323,12 +312,12 @@
         <h1 class="wk-hero__title">Роботи.</h1>
         <div class="wk-hero__row">
           <p class="wk-hero__desc">
-            Реальні продукти, які ми спроєктували й запустили.
-            E-commerce, веб-сайти, медіакіти — кожен проєкт це відповідальність, яку ми взяли на себе.
+            Реальні проєкти — від барбершопів до стритвер-брендів і медичних платформ.
+            Кожен сайт це відповідальність, яку ми взяли і виконали.
           </p>
           <div class="wk-hero__stats">
             <div class="wk-stat">
-              <span class="wk-stat__num">6+</span>
+              <span class="wk-stat__num">5</span>
               <span class="wk-stat__label">Проєктів</span>
             </div>
             <div class="wk-stat">
@@ -336,8 +325,8 @@
               <span class="wk-stat__label">Категорії</span>
             </div>
             <div class="wk-stat">
-              <span class="wk-stat__num">2019</span>
-              <span class="wk-stat__label">З року</span>
+              <span class="wk-stat__num">2024</span>
+              <span class="wk-stat__label">Рік</span>
             </div>
           </div>
         </div>
@@ -345,7 +334,7 @@
     </section>
 
     <!-- FILTER -->
-    <div class="wk-filter" role="group" aria-label="Фільтр">
+    <div class="wk-filter" role="group" aria-label="Фільтр категорій">
       <div class="wk-filter__inner">
         <button class="wk-filter__btn is-active" data-filter="all">Всі</button>
         <button class="wk-filter__btn" data-filter="ecommerce">E-commerce</button>
@@ -357,176 +346,133 @@
     <!-- BENTO GRID -->
     <section class="wk-bento" aria-label="Проєкти">
 
-      <!-- 01 Ferdinant — tall featured -->
-      <article class="wk-card wk-card--tall" data-category="web" data-reveal>
-        <div class="wk-card__thumb">
-          <img
-            src="https://image.thum.io/get/width/800/crop/1120/viewportWidth/1440/https://bashevnik.github.io/ferdinant/"
-            alt="Ferdinant Barbershop — преміальний сайт барбершопу"
-            loading="lazy"
-          />
-        </div>
-        <div class="wk-card__overlay" aria-hidden="true"></div>
-        <div class="wk-card__body">
-          <span class="wk-card__tag">Web · Barbershop</span>
-          <h2 class="wk-card__name">Ferdinant</h2>
-          <p class="wk-card__desc">Преміальний сайт для барбершопу з системою онлайн-бронювання, двомовним інтерфейсом та мінімалістичним люкс-дизайном.</p>
-          <div class="wk-card__tags">
-            <span class="wk-card__pill">Landing Page</span>
-            <span class="wk-card__pill">Booking</span>
-            <span class="wk-card__pill">UA/RU</span>
-            <span class="wk-card__pill">Dark UI</span>
-          </div>
-        </div>
-        <a href="https://bashevnik.github.io/ferdinant/" target="_blank" rel="noopener" class="wk-card__link" aria-label="Відкрити Ferdinant">
-          <svg viewBox="0 0 16 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 13L13 3M13 3H7M13 3v6"/>
-          </svg>
-        </a>
-        <span class="wk-card__year">2024</span>
-      </article>
-
-      <!-- 02 Noirveil — large featured -->
+      <!-- 01 — Noirveil (large, 7 cols) -->
       <article class="wk-card wk-card--lg" data-category="ecommerce" data-reveal>
-        <div class="wk-card__thumb">
-          <img
-            src="https://image.thum.io/get/width/1200/crop/800/viewportWidth/1440/https://noirveil.shop/en-ua"
-            alt="Noirveil — темний стритвер-бренд"
-            loading="lazy"
-          />
+        <div class="wk-card__chrome">
+          <div class="wk-card__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="wk-card__url-bar"><span class="wk-card__url">noirveil.shop</span></div>
+          <a href="https://noirveil.shop/en-ua" target="_blank" rel="noopener" class="wk-card__ext" aria-label="Відкрити Noirveil">
+            <svg viewBox="0 0 12 12" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M10 2H6M10 2v4"/></svg>
+          </a>
         </div>
-        <div class="wk-card__overlay" aria-hidden="true"></div>
-        <div class="wk-card__body">
-          <span class="wk-card__tag">E-commerce · Streetwear</span>
+        <div class="wk-card__screen">
+          <img src="public/assets/screenshots/noirveil.webp" alt="Noirveil — темний стритвер e-commerce" loading="eager" />
+        </div>
+        <div class="wk-card__info">
+          <div class="wk-card__meta">
+            <span class="wk-card__tag">E-commerce · Streetwear</span>
+            <span class="wk-card__year">2024</span>
+          </div>
           <h2 class="wk-card__name">Noirveil</h2>
-          <p class="wk-card__desc">Темний стритвер-бренд із Shopify-магазином, колекцією Black Chrome Series та дроп-стратегією. Мінімалізм, нічна естетика.</p>
-          <div class="wk-card__tags">
-            <span class="wk-card__pill">Shopify</span>
-            <span class="wk-card__pill">Dark Theme</span>
-            <span class="wk-card__pill">EN/UA</span>
-            <span class="wk-card__pill">Drop Strategy</span>
-          </div>
+          <p class="wk-card__desc">Shopify-магазин темного стритвер-бренду. Black Chrome Series, дроп-стратегія, нічна мінімалістична естетика.</p>
+          <ul class="wk-card__pills" aria-label="Технології">
+            <li>Shopify</li><li>Dark Theme</li><li>EN/UA</li><li>Drop Strategy</li>
+          </ul>
         </div>
-        <a href="https://noirveil.shop/en-ua" target="_blank" rel="noopener" class="wk-card__link" aria-label="Відкрити Noirveil">
-          <svg viewBox="0 0 16 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 13L13 3M13 3H7M13 3v6"/>
-          </svg>
-        </a>
-        <span class="wk-card__year">2024</span>
       </article>
 
-      <!-- 03 Yes or Not — wide -->
-      <article class="wk-card wk-card--wide" data-category="ecommerce" data-reveal>
-        <div class="wk-card__thumb">
-          <img
-            src="https://image.thum.io/get/width/1200/crop/560/viewportWidth/1440/https://www.yesornot.shop/"
-            alt="Yes or Not — онлайн-магазин вуличного одягу"
-            loading="lazy"
-          />
-        </div>
-        <div class="wk-card__overlay" aria-hidden="true"></div>
-        <div class="wk-card__body">
-          <span class="wk-card__tag">E-commerce · Fashion</span>
-          <h2 class="wk-card__name">Yes or Not</h2>
-          <p class="wk-card__desc">Онлайн-магазин сучасного вуличного одягу. Мінімалістичний дизайн, мультимовність, інтеграція з Instagram та TikTok.</p>
-          <div class="wk-card__tags">
-            <span class="wk-card__pill">E-commerce</span>
-            <span class="wk-card__pill">Streetwear</span>
-            <span class="wk-card__pill">UA/EN</span>
-            <span class="wk-card__pill">Social</span>
-          </div>
-        </div>
-        <a href="https://www.yesornot.shop/" target="_blank" rel="noopener" class="wk-card__link" aria-label="Відкрити Yes or Not">
-          <svg viewBox="0 0 16 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 13L13 3M13 3H7M13 3v6"/>
-          </svg>
-        </a>
-        <span class="wk-card__year">2024</span>
-      </article>
-
-      <!-- 04 SlimLab — md -->
-      <article class="wk-card wk-card--md" data-category="ecommerce" data-reveal>
-        <div class="wk-card__thumb">
-          <img
-            src="https://image.thum.io/get/width/800/crop/560/viewportWidth/1440/https://slim-lab.com.ua/"
-            alt="SlimLab — медична е-комерція"
-            loading="lazy"
-          />
-        </div>
-        <div class="wk-card__overlay" aria-hidden="true"></div>
-        <div class="wk-card__body">
-          <span class="wk-card__tag">E-commerce · Healthcare</span>
-          <h2 class="wk-card__name">SlimLab</h2>
-          <p class="wk-card__desc">Медична платформа для пептидів і препаратів. Онлайн-консультації ендокринологів, GMP-сертифікати, траст-сигнали.</p>
-          <div class="wk-card__tags">
-            <span class="wk-card__pill">Medical</span>
-            <span class="wk-card__pill">E-commerce</span>
-            <span class="wk-card__pill">Booking</span>
-          </div>
-        </div>
-        <a href="https://slim-lab.com.ua/" target="_blank" rel="noopener" class="wk-card__link" aria-label="Відкрити SlimLab">
-          <svg viewBox="0 0 16 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 13L13 3M13 3H7M13 3v6"/>
-          </svg>
-        </a>
-        <span class="wk-card__year">2024</span>
-      </article>
-
-      <!-- 05 Kyparis — md -->
+      <!-- 02 — Ferdinant (5 cols) -->
       <article class="wk-card wk-card--md" data-category="web" data-reveal>
-        <div class="wk-card__thumb">
-          <img
-            src="https://image.thum.io/get/width/800/crop/560/viewportWidth/1440/https://www.kyparis.site/"
-            alt="Kyparis — корпоративний сайт"
-            loading="lazy"
-          />
+        <div class="wk-card__chrome">
+          <div class="wk-card__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="wk-card__url-bar"><span class="wk-card__url">ferdinant.com.ua</span></div>
+          <a href="https://bashevnik.github.io/ferdinant/" target="_blank" rel="noopener" class="wk-card__ext" aria-label="Відкрити Ferdinant">
+            <svg viewBox="0 0 12 12" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M10 2H6M10 2v4"/></svg>
+          </a>
         </div>
-        <div class="wk-card__overlay" aria-hidden="true"></div>
-        <div class="wk-card__body">
-          <span class="wk-card__tag">Web · Corporate</span>
-          <h2 class="wk-card__name">Kyparis</h2>
-          <p class="wk-card__desc">Корпоративний вебсайт з сучасним дизайном, чистою типографікою та продуманою структурою контенту.</p>
-          <div class="wk-card__tags">
-            <span class="wk-card__pill">Corporate</span>
-            <span class="wk-card__pill">Web Design</span>
-            <span class="wk-card__pill">UI/UX</span>
+        <div class="wk-card__screen">
+          <img src="public/assets/screenshots/ferdinant.webp" alt="Ferdinant Barbershop — преміальний сайт" loading="eager" />
+        </div>
+        <div class="wk-card__info">
+          <div class="wk-card__meta">
+            <span class="wk-card__tag">Web · Barbershop</span>
+            <span class="wk-card__year">2024</span>
           </div>
+          <h2 class="wk-card__name">Ferdinant</h2>
+          <p class="wk-card__desc">Преміальний лендінг барбершопу з онлайн-бронюванням та монохромним luxury-дизайном.</p>
+          <ul class="wk-card__pills" aria-label="Технології">
+            <li>Landing Page</li><li>Booking</li><li>UA/RU</li>
+          </ul>
         </div>
-        <a href="https://www.kyparis.site/" target="_blank" rel="noopener" class="wk-card__link" aria-label="Відкрити Kyparis">
-          <svg viewBox="0 0 16 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 13L13 3M13 3H7M13 3v6"/>
-          </svg>
-        </a>
-        <span class="wk-card__year">2024</span>
       </article>
 
-      <!-- 06 Jaydee — wide -->
-      <article class="wk-card wk-card--wide" data-category="media" data-reveal>
-        <div class="wk-card__thumb">
-          <img
-            src="https://image.thum.io/get/width/1200/crop/560/viewportWidth/1440/https://bashevnik.github.io/jaydee-mediakit"
-            alt="Jaydee Mediakit — цифровий медіакіт інфлюенсера"
-            loading="lazy"
-          />
+      <!-- 03 — Yes or Not (7 cols) -->
+      <article class="wk-card wk-card--lg" data-category="ecommerce" data-reveal>
+        <div class="wk-card__chrome">
+          <div class="wk-card__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="wk-card__url-bar"><span class="wk-card__url">yesornot.shop</span></div>
+          <a href="https://www.yesornot.shop/" target="_blank" rel="noopener" class="wk-card__ext" aria-label="Відкрити Yes or Not">
+            <svg viewBox="0 0 12 12" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M10 2H6M10 2v4"/></svg>
+          </a>
         </div>
-        <div class="wk-card__overlay" aria-hidden="true"></div>
-        <div class="wk-card__body">
-          <span class="wk-card__tag">Media Kit · Influencer</span>
-          <h2 class="wk-card__name">Jaydee</h2>
-          <p class="wk-card__desc">Цифровий медіакіт для фітнес-інфлюенсера з 176K підписників та 1.1M переглядів/тиждень. Демографія, метрики, кейси.</p>
-          <div class="wk-card__tags">
-            <span class="wk-card__pill">Media Kit</span>
-            <span class="wk-card__pill">Fitness</span>
-            <span class="wk-card__pill">Analytics</span>
-            <span class="wk-card__pill">176K followers</span>
+        <div class="wk-card__screen">
+          <img src="public/assets/screenshots/yesornot.webp" alt="Yes or Not — streetwear e-commerce" loading="lazy" />
+        </div>
+        <div class="wk-card__info">
+          <div class="wk-card__meta">
+            <span class="wk-card__tag">E-commerce · Fashion</span>
+            <span class="wk-card__year">2024</span>
+          </div>
+          <h2 class="wk-card__name">Yes or Not</h2>
+          <p class="wk-card__desc">Онлайн-магазин сучасного вуличного одягу. Мультимовний інтерфейс, інтеграція з Instagram та TikTok.</p>
+          <ul class="wk-card__pills" aria-label="Технології">
+            <li>E-commerce</li><li>Streetwear</li><li>UA/EN</li><li>Social</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 04 — SlimLab (5 cols) -->
+      <article class="wk-card wk-card--md" data-category="ecommerce" data-reveal>
+        <div class="wk-card__chrome">
+          <div class="wk-card__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="wk-card__url-bar"><span class="wk-card__url">slim-lab.com.ua</span></div>
+          <a href="https://slim-lab.com.ua/" target="_blank" rel="noopener" class="wk-card__ext" aria-label="Відкрити SlimLab">
+            <svg viewBox="0 0 12 12" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M10 2H6M10 2v4"/></svg>
+          </a>
+        </div>
+        <div class="wk-card__screen">
+          <img src="public/assets/screenshots/slimlab.webp" alt="SlimLab — медична е-комерція" loading="lazy" />
+        </div>
+        <div class="wk-card__info">
+          <div class="wk-card__meta">
+            <span class="wk-card__tag">E-commerce · Healthcare</span>
+            <span class="wk-card__year">2024</span>
+          </div>
+          <h2 class="wk-card__name">SlimLab</h2>
+          <p class="wk-card__desc">Медична e-commerce платформа — пептиди та препарати для схуднення з онлайн-консультацією ендокринолога.</p>
+          <ul class="wk-card__pills" aria-label="Технології">
+            <li>Medical</li><li>E-commerce</li><li>Consultation</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- 05 — Jaydee (full 12 cols) -->
+      <article class="wk-card wk-card--full" data-category="media" data-reveal>
+        <div class="wk-card__chrome">
+          <div class="wk-card__dots" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div class="wk-card__url-bar"><span class="wk-card__url">bashevnik.github.io/jaydee-mediakit</span></div>
+          <a href="https://bashevnik.github.io/jaydee-mediakit" target="_blank" rel="noopener" class="wk-card__ext" aria-label="Відкрити Jaydee Mediakit">
+            <svg viewBox="0 0 12 12" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 10L10 2M10 2H6M10 2v4"/></svg>
+          </a>
+        </div>
+        <div class="wk-card__screen">
+          <img src="public/assets/screenshots/jaydee.webp" alt="Jaydee Mediakit — цифровий медіакіт інфлюенсера" loading="lazy" style="object-position:top center;" />
+        </div>
+        <div class="wk-card__info" style="display:grid;grid-template-columns:1fr 1fr;gap:0 3rem;align-items:start;">
+          <div>
+            <div class="wk-card__meta">
+              <span class="wk-card__tag">Media Kit · Influencer</span>
+              <span class="wk-card__year">2024</span>
+            </div>
+            <h2 class="wk-card__name" style="margin-top:0.4rem;">Jaydee Mediakit</h2>
+          </div>
+          <div>
+            <p class="wk-card__desc">Цифровий медіакіт для фітнес-інфлюенсера. 176K підписників, 1.1M переглядів/тиждень. Аналітика аудиторії, демографія, кейси колаборацій.</p>
+            <ul class="wk-card__pills" aria-label="Технології" style="margin-top:0.45rem;">
+              <li>Media Kit</li><li>Fitness</li><li>Analytics</li><li>176K followers</li><li>1.1M views/week</li>
+            </ul>
           </div>
         </div>
-        <a href="https://bashevnik.github.io/jaydee-mediakit" target="_blank" rel="noopener" class="wk-card__link" aria-label="Відкрити Jaydee Mediakit">
-          <svg viewBox="0 0 16 16" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 13L13 3M13 3H7M13 3v6"/>
-          </svg>
-        </a>
-        <span class="wk-card__year">2024</span>
       </article>
 
     </section>
@@ -548,11 +494,11 @@
       <span class="nav__mark" aria-hidden="true"></span>
       <span>Aster Digital</span>
     </div>
-    <nav class="footer__links" aria-label="Footer">
-      <a href="services.html">Послуги</a>
-      <a href="work.html">Роботи</a>
-      <a href="about.html">Про нас</a>
-      <a href="index.html#contact">Контакт</a>
+    <nav style="display:flex;gap:1.5rem;flex-wrap:wrap;" aria-label="Footer">
+      <a href="services.html" style="color:var(--muted);text-decoration:none;font-size:.85rem;">Послуги</a>
+      <a href="work.html"     style="color:var(--muted);text-decoration:none;font-size:.85rem;">Роботи</a>
+      <a href="about.html"    style="color:var(--muted);text-decoration:none;font-size:.85rem;">Про нас</a>
+      <a href="index.html#contact" style="color:var(--muted);text-decoration:none;font-size:.85rem;">Контакт</a>
     </nav>
     <p>&copy; <span id="year"></span> Aster Digital. Інженерно. Навмисно. Точно.</p>
   </footer>
@@ -568,11 +514,10 @@
     gsap.registerPlugin(ScrollTrigger);
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    /* hero */
     const title = document.querySelector('.wk-hero__title');
     const desc  = document.querySelector('.wk-hero__desc');
     const stats = document.querySelector('.wk-hero__stats');
-    if (!reduced) {
+    if (!reduced && title) {
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
       tl.to(title, { clipPath: 'inset(0 0 0% 0)', duration: 1.2, ease: 'power2.inOut' }, 0.2)
         .to([desc, stats], { autoAlpha: 1, y: 0, duration: 0.9, stagger: 0.1 }, '-=0.6');
@@ -583,31 +528,28 @@
     }
 
     /* filter */
-    const filterBtns = document.querySelectorAll('.wk-filter__btn');
-    const allCards   = document.querySelectorAll('[data-category]');
-    filterBtns.forEach(btn => {
+    document.querySelectorAll('.wk-filter__btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('is-active'));
+        document.querySelectorAll('.wk-filter__btn').forEach(b => b.classList.remove('is-active'));
         btn.classList.add('is-active');
         const cat = btn.dataset.filter;
-        allCards.forEach(card => {
+        document.querySelectorAll('[data-category]').forEach(card => {
           const show = cat === 'all' || card.dataset.category === cat;
-          gsap.to(card, { autoAlpha: show ? 1 : 0.1, scale: show ? 1 : 0.97, duration: 0.4, ease: 'power2.out' });
+          gsap.to(card, { autoAlpha: show ? 1 : 0.1, scale: show ? 1 : 0.98, duration: 0.4, ease: 'power2.out' });
         });
       });
     });
 
-    /* bento reveal */
+    /* staggered entrance */
     gsap.from('.wk-card', {
-      y: 40, autoAlpha: 0, duration: 0.8, ease: 'power3.out', stagger: 0.1,
-      scrollTrigger: { trigger: '.wk-bento', start: 'top 85%' },
+      y: 36, autoAlpha: 0, duration: 0.85, ease: 'power3.out', stagger: 0.1,
+      scrollTrigger: { trigger: '.wk-bento', start: 'top 88%' },
     });
 
-    /* generic reveals */
     gsap.utils.toArray('[data-reveal]').forEach(el => {
-      if (el.classList.contains('wk-card')) return; // already handled
+      if (el.classList.contains('wk-card')) return;
       gsap.from(el, {
-        y: 30, autoAlpha: 0, duration: 0.9, ease: 'power3.out',
+        y: 28, autoAlpha: 0, duration: 0.9, ease: 'power3.out',
         scrollTrigger: { trigger: el, start: 'top 88%' },
       });
     });
