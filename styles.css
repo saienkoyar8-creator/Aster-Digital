@@ -250,18 +250,19 @@ img { display: block; max-width: 100%; }
 }
 .hero__logo-wrap {
   position: relative;
-  width: min(58vw, 680px);
+  width: min(60vw, 700px);
   aspect-ratio: 1;
   display: grid; place-items: center;
   transform-style: preserve-3d;
   will-change: transform;
+  overflow: hidden;
 }
 .hlr {
   position: absolute; border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.09);
 }
-.hlr--1 { inset: 7%;  animation: ringRotate 100s linear infinite; }
-.hlr--2 { inset: -7%; border-color: rgba(255,255,255,0.05); animation: ringRotate 70s linear infinite reverse; }
+.hlr--1 { inset: 10%; animation: ringRotate 100s linear infinite; }
+.hlr--2 { inset: 3%;  border-color: rgba(255,255,255,0.05); animation: ringRotate 70s linear infinite reverse; }
 @keyframes ringRotate { to { transform: rotate(360deg); } }
 
 .hero__logo {
