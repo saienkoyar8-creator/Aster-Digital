@@ -250,7 +250,7 @@ img { display: block; max-width: 100%; }
 }
 .hero__logo-wrap {
   position: relative;
-  width: min(46vw, 520px);
+  width: min(58vw, 680px);
   aspect-ratio: 1;
   display: grid; place-items: center;
   transform-style: preserve-3d;
